@@ -1,0 +1,212 @@
+\hypertarget{classtest___l_m75_b}{}\doxysection{test\+\_\+\+LM75B Class Reference}
+\label{classtest___l_m75_b}\index{test\_LM75B@{test\_LM75B}}
+
+
+{\ttfamily \#include $<$test\+\_\+\+LM75\+B.\+h$>$}
+
+Inheritance diagram for test\+\_\+\+LM75B\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtest___l_m75_b}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}{mode}} \{ \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99aa7b1b3ad885f4f9437dada550050a5a6}{COMPARATOR}}
+, \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99abc493134fbdf85abb3f0d2c58057f02a}{INTERRUPT}}
+ \}
+\item 
+enum \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0}{reg\+\_\+num}} \{ \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0abd7d22ade8c2a74db5c06efee6c18760}{Temp}}
+, \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0ac490eb0b637f2bf9c775ff8d3687f539}{Conf}}
+, \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a8890dcb075905a113b151da20c085939}{Thyst}}
+, \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a191457f7a4d68220c69525bb76879515}{Tos}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtest___l_m75_b_ac66cf61c25e577b657d2ea6c1dcdeb65}{test\+\_\+\+LM75B}} (uint8\+\_\+t i2c\+\_\+address=(0x90 $>$ $>$ 1))
+\item 
+\mbox{\hyperlink{classtest___l_m75_b_a6e52defd3acc93a2c6824f28a8f667cf}{$\sim$test\+\_\+\+LM75B}} ()
+\item 
+float \mbox{\hyperlink{classtest___l_m75_b_ac2873766359521441c474fa01a802c60}{read}} (void)
+\item 
+void \mbox{\hyperlink{classtest___l_m75_b_abd3a43330f8e9439c2b18bb90cb05000}{thresholds}} (float v0, float v1)
+\item 
+void \mbox{\hyperlink{classtest___l_m75_b_ae80416785728a9402b76f7e82c439947}{os\+\_\+mode}} (\mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}{mode}} flag)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i2_c__device}{I2\+C\+\_\+device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i2_c__device_ad80b4138d2345ca258c9f33930853bc7}{I2\+C\+\_\+device}} (uint8\+\_\+t i2c\+\_\+address, bool \mbox{\hyperlink{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}{repeated\+\_\+start\+\_\+enable}}=true)
+\item 
+\mbox{\hyperlink{class_i2_c__device_a23440498d7cd7cec7784dcda5ed77ef0}{$\sim$\+I2\+C\+\_\+device}} ()
+\item 
+void \mbox{\hyperlink{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}{repeated\+\_\+start\+\_\+enable}} (bool en=true)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a08167f654b8cd4e7e382a277db3ed84e}{tx}} (uint8\+\_\+t $\ast$data, uint16\+\_\+t size, bool stop=true)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a8898e95a0da155f2af7b2e210ff37a03}{rx}} (uint8\+\_\+t $\ast$data, uint16\+\_\+t size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_af18e6b32dd8c8a10c3e912372c94d0cc}{reg\+\_\+w}} (uint8\+\_\+t reg\+\_\+adr, uint8\+\_\+t $\ast$data, uint16\+\_\+t size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a32134e1559824113d266d50cc0b60274}{reg\+\_\+w}} (uint8\+\_\+t reg\+\_\+adr, uint8\+\_\+t data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_ade1c24e27d7940c41c1bbb728f191068}{reg\+\_\+r}} (uint8\+\_\+t reg\+\_\+adr, uint8\+\_\+t $\ast$data, uint16\+\_\+t size)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_i2_c__device_a8380ce4dd6211b4cc7d5e48bdb473854}{reg\+\_\+r}} (uint8\+\_\+t reg\+\_\+adr)
+\item 
+void \mbox{\hyperlink{class_i2_c__device_a5f69560e9cb2d8ec33f2f5f8d497a34e}{write\+\_\+r8}} (uint8\+\_\+t reg, uint8\+\_\+t val)
+\item 
+void \mbox{\hyperlink{class_i2_c__device_aa7db320551353b8d860221dc646f3989}{write\+\_\+r16}} (uint8\+\_\+t reg, uint16\+\_\+t val)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_i2_c__device_a422a498c526852b38836a6313e14e371}{read\+\_\+r8}} (uint8\+\_\+t reg)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a9aa5aff32f1484d2282decfa0307c38d}{read\+\_\+r16}} (uint8\+\_\+t reg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_i2_c__device}{I2\+C\+\_\+device}}}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_i2_c__device_a65484a29c003557448ccc4b8c63014df}{ping}} (uint8\+\_\+t addr)
+\item 
+static void \mbox{\hyperlink{class_i2_c__device_a7deb9cf0cc98d3382f172cd20d5d3bcd}{scan}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Temp\+Sensor operation library for Arduino
+
+\begin{DoxyAuthor}{Author}
+Tedd OKANO 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29-\/Mar-\/2023
+\end{DoxyDate}
+Released under the MIT license License \mbox{\hyperlink{classtest___l_m75_b}{test\+\_\+\+LM75B}} class
+
+test class for \mbox{\hyperlink{class_i2_c__device}{I2\+C\+\_\+device}}
+
+About LM75B\+: \href{https://www.nxp.jp/products/sensors/ic-digital-temperature-sensors/digital-temperature-sensor-and-thermal-watchdog:LM75B}{\texttt{ https\+://www.\+nxp.\+jp/products/sensors/ic-\/digital-\/temperature-\/sensors/digital-\/temperature-\/sensor-\/and-\/thermal-\/watchdog\+:\+LM75B}} 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}\label{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}} 
+\index{test\_LM75B@{test\_LM75B}!mode@{mode}}
+\index{mode@{mode}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}{test\+\_\+\+LM75\+B\+::mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMPARATOR@{COMPARATOR}!test\_LM75B@{test\_LM75B}}\index{test\_LM75B@{test\_LM75B}!COMPARATOR@{COMPARATOR}}}\mbox{\Hypertarget{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99aa7b1b3ad885f4f9437dada550050a5a6}\label{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99aa7b1b3ad885f4f9437dada550050a5a6}} 
+COMPARATOR&Comparator mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INTERRUPT@{INTERRUPT}!test\_LM75B@{test\_LM75B}}\index{test\_LM75B@{test\_LM75B}!INTERRUPT@{INTERRUPT}}}\mbox{\Hypertarget{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99abc493134fbdf85abb3f0d2c58057f02a}\label{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99abc493134fbdf85abb3f0d2c58057f02a}} 
+INTERRUPT&Interrupt mode ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0}\label{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0}} 
+\index{test\_LM75B@{test\_LM75B}!reg\_num@{reg\_num}}
+\index{reg\_num@{reg\_num}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{reg\_num}{reg\_num}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0}{test\+\_\+\+LM75\+B\+::reg\+\_\+num}}}
+
+Name of the PCT2075 registers \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Temp@{Temp}!test\_LM75B@{test\_LM75B}}\index{test\_LM75B@{test\_LM75B}!Temp@{Temp}}}\mbox{\Hypertarget{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0abd7d22ade8c2a74db5c06efee6c18760}\label{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0abd7d22ade8c2a74db5c06efee6c18760}} 
+Temp&Temp register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Conf@{Conf}!test\_LM75B@{test\_LM75B}}\index{test\_LM75B@{test\_LM75B}!Conf@{Conf}}}\mbox{\Hypertarget{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0ac490eb0b637f2bf9c775ff8d3687f539}\label{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0ac490eb0b637f2bf9c775ff8d3687f539}} 
+Conf&Conf register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Thyst@{Thyst}!test\_LM75B@{test\_LM75B}}\index{test\_LM75B@{test\_LM75B}!Thyst@{Thyst}}}\mbox{\Hypertarget{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a8890dcb075905a113b151da20c085939}\label{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a8890dcb075905a113b151da20c085939}} 
+Thyst&Thyst register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tos@{Tos}!test\_LM75B@{test\_LM75B}}\index{test\_LM75B@{test\_LM75B}!Tos@{Tos}}}\mbox{\Hypertarget{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a191457f7a4d68220c69525bb76879515}\label{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a191457f7a4d68220c69525bb76879515}} 
+Tos&Tos registe \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtest___l_m75_b_ac66cf61c25e577b657d2ea6c1dcdeb65}\label{classtest___l_m75_b_ac66cf61c25e577b657d2ea6c1dcdeb65}} 
+\index{test\_LM75B@{test\_LM75B}!test\_LM75B@{test\_LM75B}}
+\index{test\_LM75B@{test\_LM75B}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{test\_LM75B()}{test\_LM75B()}}
+{\footnotesize\ttfamily test\+\_\+\+LM75\+B\+::test\+\_\+\+LM75B (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+address = {\ttfamily (0x90~$>$$>$~1)} }\end{DoxyParamCaption})}
+
+Create a PCT2075 instance connected to specified I2C pins with specified address
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+address} & I2\+C-\/bus address (default\+: (0x90\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}1)) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtest___l_m75_b_a6e52defd3acc93a2c6824f28a8f667cf}\label{classtest___l_m75_b_a6e52defd3acc93a2c6824f28a8f667cf}} 
+\index{test\_LM75B@{test\_LM75B}!````~test\_LM75B@{$\sim$test\_LM75B}}
+\index{````~test\_LM75B@{$\sim$test\_LM75B}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{$\sim$test\_LM75B()}{~test\_LM75B()}}
+{\footnotesize\ttfamily test\+\_\+\+LM75\+B\+::$\sim$test\+\_\+\+LM75B (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor of PCT2075 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtest___l_m75_b_ae80416785728a9402b76f7e82c439947}\label{classtest___l_m75_b_ae80416785728a9402b76f7e82c439947}} 
+\index{test\_LM75B@{test\_LM75B}!os\_mode@{os\_mode}}
+\index{os\_mode@{os\_mode}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{os\_mode()}{os\_mode()}}
+{\footnotesize\ttfamily void test\+\_\+\+LM75\+B\+::os\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}{mode}}}]{flag }\end{DoxyParamCaption})}
+
+Set OS operation mode
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & use PCT2075\+::\+COMPARATOR or PCT2075\+::\+INTERRUPT values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtest___l_m75_b_ac2873766359521441c474fa01a802c60}\label{classtest___l_m75_b_ac2873766359521441c474fa01a802c60}} 
+\index{test\_LM75B@{test\_LM75B}!read@{read}}
+\index{read@{read}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily float test\+\_\+\+LM75\+B\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get temperature value in degree Celsius \mbox{[}°C\mbox{]}
+
+\begin{DoxyReturn}{Returns}
+temperature value in degree Celsius \mbox{[}°C\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtest___l_m75_b_abd3a43330f8e9439c2b18bb90cb05000}\label{classtest___l_m75_b_abd3a43330f8e9439c2b18bb90cb05000}} 
+\index{test\_LM75B@{test\_LM75B}!thresholds@{thresholds}}
+\index{thresholds@{thresholds}!test\_LM75B@{test\_LM75B}}
+\doxysubsubsection{\texorpdfstring{thresholds()}{thresholds()}}
+{\footnotesize\ttfamily void test\+\_\+\+LM75\+B\+::thresholds (\begin{DoxyParamCaption}\item[{float}]{v0,  }\item[{float}]{v1 }\end{DoxyParamCaption})}
+
+Set Overtemperature shutdown threshold (Tos) and hysteresis (Thyst) in degree Celsius \mbox{[}°C\mbox{]}
+
+This method takes 2 values and higher value will set as the threshold (Tos) and . another will be the hysteresis (Thyst)
+
+
+\begin{DoxyParams}{Parameters}
+{\em v0} & a value in degree Celsius \\
+\hline
+{\em v1} & a value in degree Celsius \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+test\+\_\+\+LM75\+B.\+h\item 
+test\+\_\+\+LM75\+B.\+cpp\end{DoxyCompactItemize}

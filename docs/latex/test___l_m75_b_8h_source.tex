@@ -1,0 +1,41 @@
+\hypertarget{test___l_m75_b_8h_source}{}\doxysection{test\+\_\+\+LM75\+B.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ ARDUINO\_TEMP\_SENSOR\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ARDUINO\_TEMP\_SENSOR\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}I2C\_device.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtest___l_m75_b}{test\_LM75B}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i2_c__device}{I2C\_device}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}{mode}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99aa7b1b3ad885f4f9437dada550050a5a6}{COMPARATOR}},\ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99abc493134fbdf85abb3f0d2c58057f02a}{INTERRUPT}},\ }
+\DoxyCodeLine{00034\ \ \ \ \ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0}{reg\_num}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0abd7d22ade8c2a74db5c06efee6c18760}{Temp}},\ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0ac490eb0b637f2bf9c775ff8d3687f539}{Conf}},\ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a8890dcb075905a113b151da20c085939}{Thyst}},\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_abeb89b1b7e6b4e18506e651ace6de5a0a191457f7a4d68220c69525bb76879515}{Tos}},\ }
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b}{test\_LM75B}}(\ uint8\_t\ i2c\_address\ =\ (0x90\ >>\ 1)\ );}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classtest___l_m75_b_a6e52defd3acc93a2c6824f28a8f667cf}{\string~test\_LM75B}}();}
+\DoxyCodeLine{00053\ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classtest___l_m75_b_ac2873766359521441c474fa01a802c60}{read}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00059\ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtest___l_m75_b_abd3a43330f8e9439c2b18bb90cb05000}{thresholds}}(\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1\ );}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtest___l_m75_b_ae80416785728a9402b76f7e82c439947}{os\_mode}}(\ \mbox{\hyperlink{classtest___l_m75_b_aee2753cd76e582c42cad5c415898bb99}{mode}}\ flag\ );}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \ \ ARDUINO\_TEMP\_SENSOR\_H}}
+
+\end{DoxyCode}

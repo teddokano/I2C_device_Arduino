@@ -1,0 +1,52 @@
+\hypertarget{_i2_c__device_8h_source}{}\doxysection{I2\+C\+\_\+device.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ ARDUINO\_I2C\_DEVICE\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ARDUINO\_I2C\_DEVICE\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Wire.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i2_c__device}{I2C\_device}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_i2_c__device}{I2C\_device}}(\ uint8\_t\ i2c\_address,\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}{repeated\_start\_enable}}\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_i2_c__device_a23440498d7cd7cec7784dcda5ed77ef0}{\string~I2C\_device}}();}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}{repeated\_start\_enable}}(\ \textcolor{keywordtype}{bool}\ en\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_i2_c__device_a08167f654b8cd4e7e382a277db3ed84e}{tx}}(\ uint8\_t\ *data,\ uint16\_t\ size,\ \textcolor{keywordtype}{bool}\ stop\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_i2_c__device_a8898e95a0da155f2af7b2e210ff37a03}{rx}}(\ uint8\_t\ *data,\ uint16\_t\ size\ );}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_i2_c__device_af18e6b32dd8c8a10c3e912372c94d0cc}{reg\_w}}(\ uint8\_t\ reg\_adr,\ uint8\_t\ *data,\ uint16\_t\ size\ );}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_i2_c__device_af18e6b32dd8c8a10c3e912372c94d0cc}{reg\_w}}(\ uint8\_t\ reg\_adr,\ uint8\_t\ data\ );}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00082\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_i2_c__device_ade1c24e27d7940c41c1bbb728f191068}{reg\_r}}(\ uint8\_t\ reg\_adr,\ uint8\_t\ *data,\ uint16\_t\ size\ );}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_i2_c__device_ade1c24e27d7940c41c1bbb728f191068}{reg\_r}}(\ uint8\_t\ reg\_adr\ );}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i2_c__device_a5f69560e9cb2d8ec33f2f5f8d497a34e}{write\_r8}}(\ uint8\_t\ reg,\ uint8\_t\ val\ );}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i2_c__device_aa7db320551353b8d860221dc646f3989}{write\_r16}}(\ uint8\_t\ reg,\ uint16\_t\ val\ );}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_i2_c__device_a422a498c526852b38836a6313e14e371}{read\_r8}}(\ uint8\_t\ reg\ );}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00121\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_i2_c__device_a9aa5aff32f1484d2282decfa0307c38d}{read\_r16}}(\ uint8\_t\ reg\ );}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i2_c__device_a65484a29c003557448ccc4b8c63014df}{ping}}(\ uint8\_t\ addr\ );}
+\DoxyCodeLine{00129\ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i2_c__device_a7deb9cf0cc98d3382f172cd20d5d3bcd}{scan}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00135\ \ \ \ \ uint8\_t\ i2c\_addr;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ rs\_dis;}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \ \ ARDUINO\_I2C\_DEVICE\_H}}
+
+\end{DoxyCode}

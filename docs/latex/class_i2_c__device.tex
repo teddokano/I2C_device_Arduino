@@ -1,0 +1,312 @@
+\hypertarget{class_i2_c__device}{}\doxysection{I2\+C\+\_\+device Class Reference}
+\label{class_i2_c__device}\index{I2C\_device@{I2C\_device}}
+
+
+{\ttfamily \#include $<$I2\+C\+\_\+device.\+h$>$}
+
+Inheritance diagram for I2\+C\+\_\+device\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i2_c__device}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i2_c__device_ad80b4138d2345ca258c9f33930853bc7}{I2\+C\+\_\+device}} (uint8\+\_\+t i2c\+\_\+address, bool \mbox{\hyperlink{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}{repeated\+\_\+start\+\_\+enable}}=true)
+\item 
+\mbox{\hyperlink{class_i2_c__device_a23440498d7cd7cec7784dcda5ed77ef0}{$\sim$\+I2\+C\+\_\+device}} ()
+\item 
+void \mbox{\hyperlink{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}{repeated\+\_\+start\+\_\+enable}} (bool en=true)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a08167f654b8cd4e7e382a277db3ed84e}{tx}} (uint8\+\_\+t $\ast$data, uint16\+\_\+t size, bool stop=true)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a8898e95a0da155f2af7b2e210ff37a03}{rx}} (uint8\+\_\+t $\ast$data, uint16\+\_\+t size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_af18e6b32dd8c8a10c3e912372c94d0cc}{reg\+\_\+w}} (uint8\+\_\+t reg\+\_\+adr, uint8\+\_\+t $\ast$data, uint16\+\_\+t size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a32134e1559824113d266d50cc0b60274}{reg\+\_\+w}} (uint8\+\_\+t reg\+\_\+adr, uint8\+\_\+t data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_ade1c24e27d7940c41c1bbb728f191068}{reg\+\_\+r}} (uint8\+\_\+t reg\+\_\+adr, uint8\+\_\+t $\ast$data, uint16\+\_\+t size)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_i2_c__device_a8380ce4dd6211b4cc7d5e48bdb473854}{reg\+\_\+r}} (uint8\+\_\+t reg\+\_\+adr)
+\item 
+void \mbox{\hyperlink{class_i2_c__device_a5f69560e9cb2d8ec33f2f5f8d497a34e}{write\+\_\+r8}} (uint8\+\_\+t reg, uint8\+\_\+t val)
+\item 
+void \mbox{\hyperlink{class_i2_c__device_aa7db320551353b8d860221dc646f3989}{write\+\_\+r16}} (uint8\+\_\+t reg, uint16\+\_\+t val)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_i2_c__device_a422a498c526852b38836a6313e14e371}{read\+\_\+r8}} (uint8\+\_\+t reg)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_i2_c__device_a9aa5aff32f1484d2282decfa0307c38d}{read\+\_\+r16}} (uint8\+\_\+t reg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_i2_c__device_a65484a29c003557448ccc4b8c63014df}{ping}} (uint8\+\_\+t addr)
+\item 
+static void \mbox{\hyperlink{class_i2_c__device_a7deb9cf0cc98d3382f172cd20d5d3bcd}{scan}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C device abstracting class
+
+This class provides common methods for all I2C devices
+
+\begin{DoxyAuthor}{Author}
+Tedd OKANO 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29-\/Mar-\/2023
+\end{DoxyDate}
+Released under the MIT license License 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i2_c__device_ad80b4138d2345ca258c9f33930853bc7}\label{class_i2_c__device_ad80b4138d2345ca258c9f33930853bc7}} 
+\index{I2C\_device@{I2C\_device}!I2C\_device@{I2C\_device}}
+\index{I2C\_device@{I2C\_device}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{I2C\_device()}{I2C\_device()}}
+{\footnotesize\ttfamily I2\+C\+\_\+device\+::\+I2\+C\+\_\+device (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+address,  }\item[{bool}]{repeated\+\_\+start\+\_\+enable = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Create a \mbox{\hyperlink{class_i2_c__device}{I2\+C\+\_\+device}} instance with specified address
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+address} & I2\+C-\/bus address \\
+\hline
+{\em repeated\+\_\+start\+\_\+enable} & repeated-\/\+START-\/condition enable between write and read transaction for register reading. Default\+: true \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i2_c__device_a23440498d7cd7cec7784dcda5ed77ef0}\label{class_i2_c__device_a23440498d7cd7cec7784dcda5ed77ef0}} 
+\index{I2C\_device@{I2C\_device}!````~I2C\_device@{$\sim$I2C\_device}}
+\index{````~I2C\_device@{$\sim$I2C\_device}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{$\sim$I2C\_device()}{~I2C\_device()}}
+{\footnotesize\ttfamily I2\+C\+\_\+device\+::$\sim$\+I2\+C\+\_\+device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor of \mbox{\hyperlink{class_i2_c__device}{I2\+C\+\_\+device}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i2_c__device_a65484a29c003557448ccc4b8c63014df}\label{class_i2_c__device_a65484a29c003557448ccc4b8c63014df}} 
+\index{I2C\_device@{I2C\_device}!ping@{ping}}
+\index{ping@{ping}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily bool I2\+C\+\_\+device\+::ping (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+ping (class method)
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if ACKed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_a9aa5aff32f1484d2282decfa0307c38d}\label{class_i2_c__device_a9aa5aff32f1484d2282decfa0307c38d}} 
+\index{I2C\_device@{I2C\_device}!read\_r16@{read\_r16}}
+\index{read\_r16@{read\_r16}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{read\_r16()}{read\_r16()}}
+{\footnotesize\ttfamily uint16\+\_\+t I2\+C\+\_\+device\+::read\+\_\+r16 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg }\end{DoxyParamCaption})}
+
+Register read, 16 bit
+
+This 16 bit access may ot be common but it\textquotesingle{}s useful for sensor devices
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_a422a498c526852b38836a6313e14e371}\label{class_i2_c__device_a422a498c526852b38836a6313e14e371}} 
+\index{I2C\_device@{I2C\_device}!read\_r8@{read\_r8}}
+\index{read\_r8@{read\_r8}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{read\_r8()}{read\_r8()}}
+{\footnotesize\ttfamily uint8\+\_\+t I2\+C\+\_\+device\+::read\+\_\+r8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg }\end{DoxyParamCaption})}
+
+Register read, 8 bit
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_a8380ce4dd6211b4cc7d5e48bdb473854}\label{class_i2_c__device_a8380ce4dd6211b4cc7d5e48bdb473854}} 
+\index{I2C\_device@{I2C\_device}!reg\_r@{reg\_r}}
+\index{reg\_r@{reg\_r}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{reg\_r()}{reg\_r()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t I2\+C\+\_\+device\+::reg\+\_\+r (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+\_\+adr }\end{DoxyParamCaption})}
+
+Single register read
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+read data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_ade1c24e27d7940c41c1bbb728f191068}\label{class_i2_c__device_ade1c24e27d7940c41c1bbb728f191068}} 
+\index{I2C\_device@{I2C\_device}!reg\_r@{reg\_r}}
+\index{reg\_r@{reg\_r}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{reg\_r()}{reg\_r()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t I2\+C\+\_\+device\+::reg\+\_\+r (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+\_\+adr,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Multiple register read
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+{\em data} & pointer to data buffer \\
+\hline
+{\em size} & data size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transferred data size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_af18e6b32dd8c8a10c3e912372c94d0cc}\label{class_i2_c__device_af18e6b32dd8c8a10c3e912372c94d0cc}} 
+\index{I2C\_device@{I2C\_device}!reg\_w@{reg\_w}}
+\index{reg\_w@{reg\_w}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{reg\_w()}{reg\_w()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t I2\+C\+\_\+device\+::reg\+\_\+w (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+\_\+adr,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Multiple register write
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+{\em data} & pointer to data buffer \\
+\hline
+{\em size} & data size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transferred data size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_a32134e1559824113d266d50cc0b60274}\label{class_i2_c__device_a32134e1559824113d266d50cc0b60274}} 
+\index{I2C\_device@{I2C\_device}!reg\_w@{reg\_w}}
+\index{reg\_w@{reg\_w}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{reg\_w()}{reg\_w()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint16\+\_\+t I2\+C\+\_\+device\+::reg\+\_\+w (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+\_\+adr,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+Single register write
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+{\em data} & pointer to data buffer \\
+\hline
+{\em size} & data size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transferred data size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}\label{class_i2_c__device_aa7e393f9d636f9703047a96761828ade}} 
+\index{I2C\_device@{I2C\_device}!repeated\_start\_enable@{repeated\_start\_enable}}
+\index{repeated\_start\_enable@{repeated\_start\_enable}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{repeated\_start\_enable()}{repeated\_start\_enable()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+device\+::repeated\+\_\+start\+\_\+enable (\begin{DoxyParamCaption}\item[{bool}]{en = {\ttfamily true} }\end{DoxyParamCaption})}
+
+repeated-\/\+START-\/condition enable
+
+
+\begin{DoxyParams}{Parameters}
+{\em en} & repeated-\/\+START-\/condition enable between write and read transaction for register reading. Default\+: true \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i2_c__device_a8898e95a0da155f2af7b2e210ff37a03}\label{class_i2_c__device_a8898e95a0da155f2af7b2e210ff37a03}} 
+\index{I2C\_device@{I2C\_device}!rx@{rx}}
+\index{rx@{rx}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{rx()}{rx()}}
+{\footnotesize\ttfamily uint16\+\_\+t I2\+C\+\_\+device\+::rx (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Receive data
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to data buffer \\
+\hline
+{\em size} & data size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transferred data size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_a7deb9cf0cc98d3382f172cd20d5d3bcd}\label{class_i2_c__device_a7deb9cf0cc98d3382f172cd20d5d3bcd}} 
+\index{I2C\_device@{I2C\_device}!scan@{scan}}
+\index{scan@{scan}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+device\+::scan (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+scan (class method) \mbox{\Hypertarget{class_i2_c__device_a08167f654b8cd4e7e382a277db3ed84e}\label{class_i2_c__device_a08167f654b8cd4e7e382a277db3ed84e}} 
+\index{I2C\_device@{I2C\_device}!tx@{tx}}
+\index{tx@{tx}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{tx()}{tx()}}
+{\footnotesize\ttfamily uint16\+\_\+t I2\+C\+\_\+device\+::tx (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{size,  }\item[{bool}]{stop = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Send data
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to data buffer \\
+\hline
+{\em size} & data size \\
+\hline
+{\em stop} & option\+: generating STOP-\/condition after transaction. Defailt\+: true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transferred data size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i2_c__device_aa7db320551353b8d860221dc646f3989}\label{class_i2_c__device_aa7db320551353b8d860221dc646f3989}} 
+\index{I2C\_device@{I2C\_device}!write\_r16@{write\_r16}}
+\index{write\_r16@{write\_r16}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{write\_r16()}{write\_r16()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+device\+::write\+\_\+r16 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{uint16\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+Register write, 16 bit
+
+This 16 bit access may ot be common but it\textquotesingle{}s useful for sensor devices
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+{\em val} & data value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i2_c__device_a5f69560e9cb2d8ec33f2f5f8d497a34e}\label{class_i2_c__device_a5f69560e9cb2d8ec33f2f5f8d497a34e}} 
+\index{I2C\_device@{I2C\_device}!write\_r8@{write\_r8}}
+\index{write\_r8@{write\_r8}!I2C\_device@{I2C\_device}}
+\doxysubsubsection{\texorpdfstring{write\_r8()}{write\_r8()}}
+{\footnotesize\ttfamily void I2\+C\+\_\+device\+::write\+\_\+r8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+Register write, 8 bit
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & register index/address/pointer \\
+\hline
+{\em val} & data value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+I2\+C\+\_\+device.\+h\item 
+I2\+C\+\_\+device.\+cpp\end{DoxyCompactItemize}
