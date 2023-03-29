@@ -143,3 +143,24 @@ uint16_t I2C_device::read_r16( uint8_t reg )
 	
 	return (buff[ 0 ] << 8) | buff[ 1 ];
 }
+
+void I2C_device::bit_op8( uint8_t reg, uint8_t mask, uint8_t value )
+{
+	uint8_t	v	= read_r8( reg );
+
+	v	&= mask;
+	v	|= value;
+	
+	write_r8( reg, value );
+}
+
+void I2C_device::bit_op16( uint8_t reg, uint16_t mask, uint16_t value )
+{
+	uint16_t v	= read_r16( reg );
+
+	v	&= mask;
+	v	|= value;
+	
+	write_r16( reg, value );
+}
+

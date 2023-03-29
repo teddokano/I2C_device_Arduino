@@ -113,12 +113,23 @@ public:
 
 	/** Register read, 16 bit
 	 *	
-	 *This 16 bit access may ot be common but it's useful for sensor devices
+	 *	This 16 bit access may ot be common but it's useful for sensor devices
 	 *
 	 * @param reg register index/address/pointer
 	 * @return data value
 	 */
 	uint16_t read_r16( uint8_t reg );
+
+	/** Register overwriting with bit-mask
+	 *	
+	 *	Register can be updated by bit level
+	 *
+	 * @param reg register index/address/pointer
+	 * @param mask bit-mask to protect overwriting
+	 * @param value value to overwrite
+	 */
+	void bit_op8(  uint8_t reg,  uint8_t mask,  uint8_t value );
+	void bit_op16( uint8_t reg, uint16_t mask, uint16_t value );
 
 	/** ping (class method)
 	 *
