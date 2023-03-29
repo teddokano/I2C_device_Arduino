@@ -9,7 +9,10 @@ On addition to the device abstraction, it provides method `ping()` and `scan()` 
 
 See `test_LM75B.cpp` and `test_LM75B.h` as a sample for how the sub-class can be derived to make actual device supporting class. 
 
-## Example
+# Document
+Details of the library is provided in [this document](https://teddokano.github.io/I2C_device_Arduino/md__r_e_a_d_m_e.html).
+
+# Example
 An example code is available using test_LM75B class which is included in this library distribution.  
 It performs 
 1. Scan of I²C bus. Result is shown as a table (executed by `I2C_device::scan()`)
