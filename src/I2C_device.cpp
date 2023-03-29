@@ -151,7 +151,7 @@ void I2C_device::bit_op8( uint8_t reg, uint8_t mask, uint8_t value )
 	v	&= mask;
 	v	|= value;
 	
-	write_r8( reg, value );
+	write_r8( reg, v );
 }
 
 void I2C_device::bit_op16( uint8_t reg, uint16_t mask, uint16_t value )
@@ -160,7 +160,7 @@ void I2C_device::bit_op16( uint8_t reg, uint16_t mask, uint16_t value )
 
 	v	&= mask;
 	v	|= value;
-	
-	write_r16( reg, value );
+
+	write_r16( reg, v );
 }
 
