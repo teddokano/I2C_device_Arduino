@@ -1,8 +1,7 @@
-/** TempSensor operation library for Arduino
+/** test_LM75B operation library for Arduino
  *
- *  @author  Tedd OKANO
- *  @version 0.1
- *  @date    29-Mar-2023
+ *  @class	test_LM75B
+ *  @author	Tedd OKANO
  *
  *  Released under the MIT license License
  */

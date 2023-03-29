@@ -6,8 +6,6 @@
  *  The sample code performns the LM75B temperature sensor access using I2C_device methods and its class method: I2C_device::scan()
  *
  *  @author  Tedd OKANO
- *  @version 0.1
- *  @date    29-Mar-2023
  *
  *  Released under the MIT license License
  */

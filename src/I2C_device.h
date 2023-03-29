@@ -4,8 +4,6 @@
  *
  *  @class   I2C_device
  *  @author  Tedd OKANO
- *  @version 0.1
- *  @date    29-Mar-2023
  *
  *  Released under the MIT license License
  */
