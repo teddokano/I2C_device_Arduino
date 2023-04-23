@@ -15,9 +15,9 @@ void I2C_device::repeated_start_enable( bool en )
 	rs_dis	= !en;
 }
 
-bool I2C_device::ping( uint8_t addr )
+bool I2C_device::ping( void )
 {
-	Wire.beginTransmission( addr );
+	Wire.beginTransmission( i2c_addr );
 	return !Wire.endTransmission();
 }
 
@@ -52,25 +52,25 @@ void I2C_device::scan( void )
 	Serial.print( "\n" );			
 }
 
-uint16_t I2C_device::tx( uint8_t *data, uint16_t size, bool stop )
+int I2C_device::tx( uint8_t *data, uint16_t size, bool stop )
 {
 	Wire.beginTransmission( i2c_addr );
 	size		= Wire.write( data, size );
 	uint8_t rtn = Wire.endTransmission( stop );
 
 	if (rtn)
-		Serial.println( "i2c_tx: ERROR" );
+		return -rtn;
 
 	return size;
 }
 
-uint16_t I2C_device::rx( uint8_t *data, uint16_t size )
+int I2C_device::rx( uint8_t *data, uint16_t size )
 {
 	uint16_t r_size = Wire.requestFrom( i2c_addr, size );
 
-	if (r_size != size)
-		Serial.println( "i2c_rx: received size was shorter than specified" );
-
+	if ( size && !r_size )
+		return	-1;
+	
 	for ( uint16_t i = 0; i < size; i++ ) {
 		while ( !Wire.available() )
 			;
@@ -79,7 +79,7 @@ uint16_t I2C_device::rx( uint8_t *data, uint16_t size )
 	return r_size;
 }
 
-uint16_t I2C_device::reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size )
+int I2C_device::reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size )
 {
 	uint8_t buffer[ size + 1 ];
 	
@@ -90,7 +90,7 @@ uint16_t I2C_device::reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size )
 	return tx( buffer, sizeof( buffer ) );
 }
 
-uint16_t I2C_device::reg_w( uint8_t reg_adr, uint8_t data )
+int I2C_device::reg_w( uint8_t reg_adr, uint8_t data )
 {
 	uint8_t buffer[ 2 ];
 	
@@ -100,7 +100,7 @@ uint16_t I2C_device::reg_w( uint8_t reg_adr, uint8_t data )
 	return tx( buffer, sizeof( buffer ) );
 }
 
-uint16_t I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size )
+int I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size )
 {
 	tx( &reg_adr, 1, rs_dis );
 	return rx( data, size );

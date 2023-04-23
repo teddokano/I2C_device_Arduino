@@ -7,5 +7,5 @@ var searchData=
   ['thresholds_4',['thresholds',['../classtest___l_m75_b.html#abd3a43330f8e9439c2b18bb90cb05000',1,'test_LM75B']]],
   ['thyst_5',['Thyst',['../classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0a8890dcb075905a113b151da20c085939',1,'test_LM75B']]],
   ['tos_6',['Tos',['../classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0a191457f7a4d68220c69525bb76879515',1,'test_LM75B']]],
-  ['tx_7',['tx',['../class_i2_c__device.html#a08167f654b8cd4e7e382a277db3ed84e',1,'I2C_device']]]
+  ['tx_7',['tx',['../class_i2_c__device.html#a7ffab6c133e8c3234d5f33f697632e93',1,'I2C_device']]]
 ];

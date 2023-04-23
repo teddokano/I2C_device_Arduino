@@ -35,14 +35,20 @@ public:
 	 */
 	void repeated_start_enable( bool en = true );
 	
+	/** Ping the device
+	 *
+	 * @return true when ACK 
+	 */
+	bool ping( void );
+	
 	/** Send data
 	 * 
 	 * @param data pointer to data buffer
 	 * @param size data size
 	 * @param stop option: generating STOP-condition after transaction. Defailt: true
-	 * @return transferred data size
+	 * @return transferred data size or error code in negative number: -1=data too long, -2=NACK for address, -3=NACK for data, -4=Other error, -5=Time out
 	 */
-	uint16_t tx( uint8_t *data, uint16_t size, bool stop = true );
+	int tx( uint8_t *data, uint16_t size, bool stop = true );
 
 	/** Receive data
 	 * 
@@ -50,7 +56,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	uint16_t rx( uint8_t *data, uint16_t size );
+	int rx( uint8_t *data, uint16_t size );
 	
 	/** Multiple register write
 	 * 
@@ -59,7 +65,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	uint16_t reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size );
+	int reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size );
 
 	/** Single register write
 	 * 
@@ -68,7 +74,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	uint16_t reg_w( uint8_t reg_adr, uint8_t data );
+	int reg_w( uint8_t reg_adr, uint8_t data );
 
 	/** Multiple register read
 	 * 
@@ -77,7 +83,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	uint16_t reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size );
+	int reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size );
 
 	/** Single register read
 	 * 

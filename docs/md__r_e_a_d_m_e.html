@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;0.2</span>
+   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;0.3.0</span>
    </div>
    <div id="projectbrief">An I²C utility class for Arduino</div>
   </td>
@@ -82,15 +82,36 @@ What is this?</h1>
 <p>On addition to the device abstraction, it provides method <code>ping()</code> and <code>scan()</code> as class methods. <br  />
 </p>
 <p>See <code><a class="el" href="test___l_m75_b_8cpp.html">test_LM75B.cpp</a></code> and <code><a class="el" href="test___l_m75_b_8h.html">test_LM75B.h</a></code> as a sample for how the sub-class can be derived to make actual device supporting class.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Example</h2>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Document</h1>
+<p>Details of the library is provided in <a href="https://teddokano.github.io/I2C_device_Arduino/md__r_e_a_d_m_e.html">this document</a>.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Example</h1>
 <p>An example code is available using <a class="el" href="classtest___l_m75_b.html">test_LM75B</a> class which is included in this library distribution. <br  />
  It performs</p><ol type="1">
 <li>Scan of I²C bus. Result is shown as a table (executed by <code><a class="el" href="class_i2_c__device.html#a7deb9cf0cc98d3382f172cd20d5d3bcd">I2C_device::scan()</a></code>)</li>
 </ol>
 <ol type="1">
-<li>temperature reading from LM75B and its compatible device and showing result in every second. </li>
+<li>temperature reading from LM75B and its compatible device and showing result in every second.</li>
 </ol>
+<h1><a class="anchor" id="autotoc_md4"></a>
+References</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Related libraries</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Library   </th><th class="markdownTableHeadNone">Feature   </th><th class="markdownTableHeadNone">Target devices   </th><th class="markdownTableHeadNone">Required library    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/GPIO_NXP_Arduino">GPIO_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">LED driver libraries   </td><td class="markdownTableBodyNone">PCAL6408A, PCAL6416A, PCAL6524, PCAL6534   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/LEDDriver_NXP_Arduino">LEDDriver_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">LED driver libraries   </td><td class="markdownTableBodyNone">PCA9955B, PCA9956B, PCA9957   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/RTC_NXP_Arduino">RTC_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">RTC driver libraries   </td><td class="markdownTableBodyNone">PCF2131, PCF85063A   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/TempSensor_NXP_Arduino">TempSensor_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">Temperature sensor libraries   </td><td class="markdownTableBodyNone">LM75B, PCT2075, P3T1085   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>   </td><td class="markdownTableBodyNone">Base library for I²C operations   </td><td class="markdownTableBodyNone">none (can be applied as base class for all I²C targets)   </td><td class="markdownTableBodyNone">&mdash;   </td></tr>
+</table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
