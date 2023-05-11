@@ -1,9 +1,11 @@
 #include "I2C_device.h"
 
-I2C_device::I2C_device( uint8_t i2c_address, bool repeated_start_enable ) : i2c_addr( i2c_address ), rs_dis( !repeated_start_enable )
+I2C_device::I2C_device( uint8_t i2c_address, bool repeated_start_enable ) : i2c( Wire ), i2c_addr( i2c_address ), rs_dis( !repeated_start_enable )
 {
-	//  do nothing.
-	//  leave it in default state.
+}
+
+I2C_device::I2C_device( TwoWire& wire, uint8_t i2c_address, bool repeated_start_enable ) : i2c( wire ), i2c_addr( i2c_address ), rs_dis( !repeated_start_enable )
+{
 }
 
 I2C_device::~I2C_device()
@@ -17,16 +19,22 @@ void I2C_device::repeated_start_enable( bool en )
 
 bool I2C_device::ping( void )
 {
-	Wire.beginTransmission( i2c_addr );
-	return !Wire.endTransmission();
+	i2c.beginTransmission( i2c_addr );
+	return !i2c.endTransmission();
 }
 
-void I2C_device::scan( void )
+void I2C_device::scan( TwoWire& target_i2c, uint8_t stop )
 {
 	bool  result[ 128 ];
 
-	for ( uint8_t i = 0; i < 128; i++ )
-		result[i] = I2C_device::ping(i);
+	for ( uint8_t i = 0; i < stop; i++ ) {
+		target_i2c.beginTransmission( i );
+		result[i] = !target_i2c.endTransmission();
+	}
+
+	for ( uint8_t i = stop; i < 128; i++ ) {
+		result[i] = false;
+	}
 
 	Serial.print( "\nI2C scan result\n   " );
 	for ( uint8_t x = 0; x < 16; x++ ) {
@@ -54,9 +62,9 @@ void I2C_device::scan( void )
 
 int I2C_device::tx( uint8_t *data, uint16_t size, bool stop )
 {
-	Wire.beginTransmission( i2c_addr );
-	size		= Wire.write( data, size );
-	uint8_t rtn = Wire.endTransmission( stop );
+	i2c.beginTransmission( i2c_addr );
+	size		= i2c.write( data, size );
+	uint8_t rtn = i2c.endTransmission( stop );
 
 	if (rtn)
 		return -rtn;
@@ -66,15 +74,15 @@ int I2C_device::tx( uint8_t *data, uint16_t size, bool stop )
 
 int I2C_device::rx( uint8_t *data, uint16_t size )
 {
-	uint16_t r_size = Wire.requestFrom( i2c_addr, size );
+	uint16_t r_size = i2c.requestFrom( i2c_addr, size );
 
 	if ( size && !r_size )
 		return	-1;
 	
 	for ( uint16_t i = 0; i < size; i++ ) {
-		while ( !Wire.available() )
+		while ( !i2c.available() )
 			;
-		data[ i ] = Wire.read();
+		data[ i ] = i2c.read();
 	}
 	return r_size;
 }

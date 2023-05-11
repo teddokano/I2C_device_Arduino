@@ -89,24 +89,105 @@ Document</h1>
 Example</h1>
 <p>An example code is available using <a class="el" href="classtest___l_m75_b.html">test_LM75B</a> class which is included in this library distribution. <br  />
  It performs</p><ol type="1">
-<li>Scan of I²C bus. Result is shown as a table (executed by <code><a class="el" href="class_i2_c__device.html#a7deb9cf0cc98d3382f172cd20d5d3bcd">I2C_device::scan()</a></code>)</li>
+<li>Scan of I²C bus. Result is shown as a table (executed by <code><a class="el" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan()</a></code>)</li>
 </ol>
 <ol type="1">
 <li>temperature reading from LM75B and its compatible device and showing result in every second.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Using different I²C bus</h2>
+<p>For normal usage of I²C device which is delived from <a class="el" href="class_i2_c__device.html">I2C_device</a> class, it will be like sample blelow. This intended to use <code>Wire</code> instance of Arduino SDK to access I2C, implicitly. <br  />
+ (Using <a class="el" href="classtest___l_m75_b.html">test_LM75B</a> class included in this library package.) </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_i2_c__device_8h.html">I2C_device.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="test___l_m75_b_8h.html">test_LM75B.h</a>&gt;</span>  <span class="comment">//  &lt;-- test_LM75B is just for testing purpose</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  Wire.begin();</div>
+<div class="line">  Serial.begin(9600);</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">float</span> temp = sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  Serial.println(sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>());</div>
+<div class="line">  delay(1000);</div>
+<div class="line">}</div>
+<div class="ttc" id="a_i2_c__device_8h_html"><div class="ttname"><a href="_i2_c__device_8h.html">I2C_device.h</a></div></div>
+<div class="ttc" id="aclass_i2_c__device_html_a8c95b5549c3ea77941e5c27783e9859a"><div class="ttname"><a href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a></div><div class="ttdeci">static void scan(TwoWire &amp;target_i2c=Wire, uint8_t stop=128)</div><div class="ttdef"><b>Definition:</b> <a href="_i2_c__device_8cpp_source.html#l00026">I2C_device.cpp:26</a></div></div>
+<div class="ttc" id="aclasstest___l_m75_b_html"><div class="ttname"><a href="classtest___l_m75_b.html">test_LM75B</a></div><div class="ttdef"><b>Definition:</b> <a href="test___l_m75_b_8h_source.html#l00027">test_LM75B.h:28</a></div></div>
+<div class="ttc" id="aclasstest___l_m75_b_html_ac2873766359521441c474fa01a802c60"><div class="ttname"><a href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">test_LM75B::read</a></div><div class="ttdeci">float read(void)</div><div class="ttdef"><b>Definition:</b> <a href="test___l_m75_b_8cpp_source.html#l00017">test_LM75B.cpp:17</a></div></div>
+<div class="ttc" id="atest___l_m75_b_8h_html"><div class="ttname"><a href="test___l_m75_b_8h.html">test_LM75B.h</a></div></div>
+</div><!-- fragment --><p>If user need to use other instance of TwoWire class (a class for Wire), it could be done like below. <br  />
+ In this sample, the I²C device is connected Wire1 (It's SDA1&amp;SCL1 pins on Arduino DUE). Wire1 should be used explisitly. <br  />
+ </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_i2_c__device_8h.html">I2C_device.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="test___l_m75_b_8h.html">test_LM75B.h</a>&gt;</span>  <span class="comment">//  &lt;-- test_LM75B is just for testing purpose</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//test_LM75B sensor;  //  Changed to next line</span></div>
+<div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor(Wire1);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  <span class="comment">// Wire.begin();  //  Changed to next line</span></div>
+<div class="line">  Wire1.begin();</div>
+<div class="line">  Serial.begin(9600);</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>(Wire1, 124); <span class="comment">//  Scan stop at 124</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  Serial.println(sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>());</div>
+<div class="line">  delay(1000);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
+TIPS</h3>
+<p>For more generic way to define the hardware, you can do it by compile option to detect the board and switch compile option. <br  />
+ In this sample, the compiler detects type of target board and use right instance for the target. <br  />
+ </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_i2_c__device_8h.html">I2C_device.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="test___l_m75_b_8h.html">test_LM75B.h</a>&gt;</span>  <span class="comment">//  &lt;-- test_LM75B is just for testing purpose</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined( ARDUINO_AVR_UNO ) </span><span class="comment">// for Arduino Uno</span></div>
+<div class="line">TwoWire&amp; w = Wire;</div>
+<div class="line"><span class="preprocessor">#elif defined( ARDUINO_SAM_DUE ) </span><span class="comment">// for Arduino Due</span></div>
+<div class="line">TwoWire&amp; w = Wire1;</div>
+<div class="line"><span class="preprocessor">#else</span></div>
+<div class="line"><span class="preprocessor">#error &quot;not supported board&quot;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor(w);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  w.begin();</div>
+<div class="line">  Serial.begin(9600);</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>(w, 124);  <span class="comment">//  Scan stop at 124</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  Serial.println(sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>());</div>
+<div class="line">  delay(1000);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 References</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Related libraries</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Library   </th><th class="markdownTableHeadNone">Feature   </th><th class="markdownTableHeadNone">Target devices   </th><th class="markdownTableHeadNone">Required library    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/GPIO_NXP_Arduino">GPIO_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">LED driver libraries   </td><td class="markdownTableBodyNone">PCAL6408A, PCAL6416A, PCAL6524, PCAL6534   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/GPIO_NXP_Arduino">GPIO_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">GPIO libraries   </td><td class="markdownTableBodyNone">PCAL6408A, PCAL6416A, PCAL6524, PCAL6534, PCA9555, PCA9554   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/LEDDriver_NXP_Arduino">LEDDriver_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">LED driver libraries   </td><td class="markdownTableBodyNone">PCA9955B, PCA9956B, PCA9957   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/LCDDriver_NXP_Arduino">LCDDriver_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">LCD driver libraries   </td><td class="markdownTableBodyNone">PCA8561   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/RTC_NXP_Arduino">RTC_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">RTC driver libraries   </td><td class="markdownTableBodyNone">PCF2131, PCF85063A   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/LEDDriver_NXP_Arduino">LEDDriver_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">LED driver libraries   </td><td class="markdownTableBodyNone">PCA9955B, PCA9956B, PCA9957   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/MUX_SW_NXP_Arduino">MUX_SW_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">I²C mux/switch libraries   </td><td class="markdownTableBodyNone">PCA9846   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/teddokano/RTC_NXP_Arduino">RTC_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">RTC libraries   </td><td class="markdownTableBodyNone">PCF2131, PCF85063A   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a href="https://github.com/teddokano/TempSensor_NXP_Arduino">TempSensor_NXP_Arduino</a>   </td><td class="markdownTableBodyNone">Temperature sensor libraries   </td><td class="markdownTableBodyNone">LM75B, PCT2075, P3T1085   </td><td class="markdownTableBodyNone"><a href="https://github.com/teddokano/I2C_device_Arduino">I2C_device_Arduino</a>    </td></tr>
 <tr class="markdownTableRowOdd">

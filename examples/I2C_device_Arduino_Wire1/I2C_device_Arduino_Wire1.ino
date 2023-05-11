@@ -1,3 +1,9 @@
+#include <I2C_device.h>
+#include <test_LM75B.h>
+
+#include <I2C_device.h>
+#include <test_LM75B.h>
+
 /** I2C_device class operation sample using tiny test_LM75B class
  *  
  *  This sample code is showing I2C_device operation with test_LM75B.
@@ -13,14 +19,16 @@
 #include <I2C_device.h>
 #include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
 
-test_LM75B sensor(Wire);
+//test_LM75B sensor;  //  Changed to next line
+test_LM75B sensor(Wire1);
 
 void setup() {
-  Wire.begin();
+  // Wire.begin();  //  Changed to next line
+  Wire1.begin();
   Serial.begin(9600);
   Serial.println("\r***** Hello, I2C_device! *****");
 
-  I2C_device::scan();
+  I2C_device::scan(Wire1, 124); //  Scan stop at 124
 }
 
 void loop() {

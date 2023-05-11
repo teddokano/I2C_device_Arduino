@@ -46,6 +46,13 @@ public:
 	 */
 	test_LM75B( uint8_t i2c_address = (0x90 >> 1) );
 
+	/** Create a PCT2075 instance connected to specified I2C pins with specified address
+	 *
+	 * @param wire TwoWire instance
+	 * @param i2c_address I2C-bus address (default: (0x90>>1))
+	 */
+	test_LM75B( TwoWire& wire, uint8_t i2c_address = (0x90 >> 1) );
+
 	/** Destructor of PCT2075
 	 */
 	~test_LM75B();

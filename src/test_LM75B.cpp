@@ -4,8 +4,10 @@
 
 test_LM75B::test_LM75B( uint8_t i2c_address ) : I2C_device( i2c_address )
 {
-	//  do nothing.
-	//  leave it in default state.
+}
+
+test_LM75B::test_LM75B( TwoWire& wire, uint8_t i2c_address ) : I2C_device( wire, i2c_address )
+{
 }
 
 test_LM75B::~test_LM75B()

@@ -18,6 +18,88 @@ It performs
 1. Scan of I²C bus. Result is shown as a table (executed by `I2C_device::scan()`)
 1. temperature reading from LM75B and its compatible device and showing result in every second. 
 
+## Using different I²C bus
+
+For normal usage of I²C device which is delived from I2C_device class, it will be like sample blelow. This intended to use `Wire` instance of Arduino SDK to access I2C, implicitly.  
+(Using test_LM75B class included in this library package.)
+```cpp
+#include <I2C_device.h>
+#include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
+
+test_LM75B sensor;
+
+void setup() {
+  Wire.begin();
+  Serial.begin(9600);
+  Serial.println("\r***** Hello, I2C_device! *****");
+
+  I2C_device::scan();
+
+  float temp = sensor.read();
+}
+
+void loop() {
+  Serial.println(sensor.read());
+  delay(1000);
+}
+```
+
+If user need to use other instance of TwoWire class (a class for Wire), it could be done like below.  
+In this sample, the I²C device is connected Wire1 (It's SDA1&SCL1 pins on Arduino DUE). Wire1 should be used explisitly.  
+```cpp
+#include <I2C_device.h>
+#include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
+
+//test_LM75B sensor;  //  Changed to next line
+test_LM75B sensor(Wire1);
+
+void setup() {
+  // Wire.begin();  //  Changed to next line
+  Wire1.begin();
+  Serial.begin(9600);
+  Serial.println("\r***** Hello, I2C_device! *****");
+
+  I2C_device::scan(Wire1, 124); //  Scan stop at 124
+}
+
+void loop() {
+  Serial.println(sensor.read());
+  delay(1000);
+}
+```
+
+### TIPS
+
+For more generic way to define the hardware, you can do it by compile option to detect the board and switch compile option.  
+In this sample, the compiler detects type of target board and use right instance for the target.  
+```cpp
+#include <I2C_device.h>
+#include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
+
+#if defined( ARDUINO_AVR_UNO ) // for Arduino Uno
+TwoWire& w = Wire;
+#elif defined( ARDUINO_SAM_DUE ) // for Arduino Due
+TwoWire& w = Wire1;
+#else
+#error "not supported board"
+#endif
+
+test_LM75B sensor(w);
+
+void setup() {
+  w.begin();
+  Serial.begin(9600);
+  Serial.println("\r***** Hello, I2C_device! *****");
+
+  I2C_device::scan(w, 124);  //  Scan stop at 124
+}
+
+void loop() {
+  Serial.println(sensor.read());
+  delay(1000);
+}
+```
+
 # References
 
 ## Related libraries

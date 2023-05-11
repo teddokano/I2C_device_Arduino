@@ -19,11 +19,19 @@ class I2C_device
 {
 public:
 	/** Create a I2C_device instance with specified address
-     *
+	 *
 	 * @param i2c_address I2C-bus address
 	 * @param repeated_start_enable repeated-START-condition enable between write and read transaction for register reading. Default: true
-     */
+	 */
 	I2C_device( uint8_t i2c_address, bool repeated_start_enable = true );
+
+	/** Create a I2C_device instance with specified address
+	 *
+	 * @param wire TwoWire instance
+	 * @param i2c_address I2C-bus address
+	 * @param repeated_start_enable repeated-START-condition enable between write and read transaction for register reading. Default: true
+	 */
+	I2C_device( TwoWire& wire, uint8_t i2c_address, bool repeated_start_enable = true );
 
     /** Destructor of I2C_device
      */
@@ -144,11 +152,12 @@ public:
 	
 	/** scan (class method)
 	 */
-	static void scan( void );
+	static void scan( TwoWire& target_i2c = Wire, uint8_t stop = 128 );
 		
 private:
-	uint8_t	i2c_addr;
-	bool	rs_dis;
+	TwoWire&	i2c;
+	uint8_t		i2c_addr;
+	bool		rs_dis;
 };
 
 #endif //	ARDUINO_I2C_DEVICE_H
