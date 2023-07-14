@@ -26,16 +26,18 @@ For normal usage of I²C device which is delived from I2C_device class, it will 
 #include <I2C_device.h>
 #include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
 
-test_LM75B sensor;
+test_LM75B sensor(Wire);
 
 void setup() {
-  Wire.begin();
   Serial.begin(9600);
+  while (!Serial)
+    ;
+
   Serial.println("\r***** Hello, I2C_device! *****");
 
-  I2C_device::scan();
+  Wire.begin();
 
-  float temp = sensor.read();
+  I2C_device::scan();
 }
 
 void loop() {
@@ -54,10 +56,14 @@ In this sample, the I²C device is connected Wire1 (It's SDA1&SCL1 pins on Ardui
 test_LM75B sensor(Wire1);
 
 void setup() {
+  Serial.begin(9600);
+  while (!Serial)
+    ;
+
+   Serial.println("\r***** Hello, I2C_device! *****");
+
   // Wire.begin();  //  Changed to next line
   Wire1.begin();
-  Serial.begin(9600);
-  Serial.println("\r***** Hello, I2C_device! *****");
 
   I2C_device::scan(Wire1, 124); //  Scan stop at 124
 }
@@ -76,20 +82,30 @@ In this sample, the compiler detects type of target board and use right instance
 #include <I2C_device.h>
 #include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
 
-#if defined( ARDUINO_AVR_UNO ) // for Arduino Uno
-TwoWire& w = Wire;
+#if defined( ARDUINO_AVR_UNO ) // for Arduino UNO R3
+  TwoWire& w = Wire;
+  const String s = "Code is compiled for Arduino UNO R3 to use \"Wire\" instance";
+#elif defined( ARDUINO_UNOR4_MINIMA ) || defined( ARDUINO_UNOR4_WIFI ) // for Arduino UNO R4
+  TwoWire& w = Wire;
+  const String s = "Code is compiled for Arduino UNO R4 to use \"Wire\" instance";
 #elif defined( ARDUINO_SAM_DUE ) // for Arduino Due
-TwoWire& w = Wire1;
+  TwoWire& w = Wire1;
+  const String s = "Code is compiled for Arduino DUE to use \"Wire1\" instance";
 #else
-#error "not supported board"
+  #error "not supported board"
 #endif
 
 test_LM75B sensor(w);
 
 void setup() {
-  w.begin();
   Serial.begin(9600);
+  while (!Serial)
+    ;
+
   Serial.println("\r***** Hello, I2C_device! *****");
+  Serial.println(s);
+
+  w.begin();
 
   I2C_device::scan(w, 124);  //  Scan stop at 124
 }

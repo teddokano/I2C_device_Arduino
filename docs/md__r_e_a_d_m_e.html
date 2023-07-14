@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.1</span>
    </div>
    <div id="projectbrief">An I²C utility class for Arduino</div>
   </td>
@@ -100,26 +100,27 @@ Using different I²C bus</h2>
  (Using <a class="el" href="classtest___l_m75_b.html">test_LM75B</a> class included in this library package.) </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_i2_c__device_8h.html">I2C_device.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="test___l_m75_b_8h.html">test_LM75B.h</a>&gt;</span>  <span class="comment">//  &lt;-- test_LM75B is just for testing purpose</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor;</div>
+<div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor(Wire);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  Wire.begin();</div>
 <div class="line">  Serial.begin(9600);</div>
+<div class="line">  <span class="keywordflow">while</span> (!Serial)</div>
+<div class="line">    ;</div>
+<div class="line"> </div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
 <div class="line"> </div>
-<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>();</div>
+<div class="line">  Wire.begin();</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordtype">float</span> temp = sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>();</div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>();</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  Serial.println(sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>());</div>
+<div class="line">  Serial.println(sensor.read());</div>
 <div class="line">  delay(1000);</div>
 <div class="line">}</div>
 <div class="ttc" id="a_i2_c__device_8h_html"><div class="ttname"><a href="_i2_c__device_8h.html">I2C_device.h</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_a8c95b5549c3ea77941e5c27783e9859a"><div class="ttname"><a href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a></div><div class="ttdeci">static void scan(TwoWire &amp;target_i2c=Wire, uint8_t stop=128)</div><div class="ttdef"><b>Definition</b> <a href="_i2_c__device_8cpp_source.html#l00026">I2C_device.cpp:26</a></div></div>
 <div class="ttc" id="aclasstest___l_m75_b_html"><div class="ttname"><a href="classtest___l_m75_b.html">test_LM75B</a></div><div class="ttdef"><b>Definition</b> <a href="test___l_m75_b_8h_source.html#l00027">test_LM75B.h:28</a></div></div>
-<div class="ttc" id="aclasstest___l_m75_b_html_ac2873766359521441c474fa01a802c60"><div class="ttname"><a href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">test_LM75B::read</a></div><div class="ttdeci">float read(void)</div><div class="ttdef"><b>Definition</b> <a href="test___l_m75_b_8cpp_source.html#l00017">test_LM75B.cpp:17</a></div></div>
 <div class="ttc" id="atest___l_m75_b_8h_html"><div class="ttname"><a href="test___l_m75_b_8h.html">test_LM75B.h</a></div></div>
 </div><!-- fragment --><p>If user need to use other instance of TwoWire class (a class for Wire), it could be done like below. <br  />
  In this sample, the I²C device is connected Wire1 (It's SDA1&amp;SCL1 pins on Arduino DUE). Wire1 should be used explisitly. <br  />
@@ -130,16 +131,20 @@ Using different I²C bus</h2>
 <div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor(Wire1);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  Serial.begin(9600);</div>
+<div class="line">  <span class="keywordflow">while</span> (!Serial)</div>
+<div class="line">    ;</div>
+<div class="line"> </div>
+<div class="line">   Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
+<div class="line"> </div>
 <div class="line">  <span class="comment">// Wire.begin();  //  Changed to next line</span></div>
 <div class="line">  Wire1.begin();</div>
-<div class="line">  Serial.begin(9600);</div>
-<div class="line">  Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>(Wire1, 124); <span class="comment">//  Scan stop at 124</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  Serial.println(sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>());</div>
+<div class="line">  Serial.println(sensor.read());</div>
 <div class="line">  delay(1000);</div>
 <div class="line">}</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
@@ -149,26 +154,36 @@ TIPS</h3>
  </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_i2_c__device_8h.html">I2C_device.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="test___l_m75_b_8h.html">test_LM75B.h</a>&gt;</span>  <span class="comment">//  &lt;-- test_LM75B is just for testing purpose</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#if defined( ARDUINO_AVR_UNO ) </span><span class="comment">// for Arduino Uno</span></div>
-<div class="line">TwoWire&amp; w = Wire;</div>
+<div class="line"><span class="preprocessor">#if defined( ARDUINO_AVR_UNO ) </span><span class="comment">// for Arduino UNO R3</span></div>
+<div class="line">  TwoWire&amp; w = Wire;</div>
+<div class="line">  <span class="keyword">const</span> String s = <span class="stringliteral">&quot;Code is compiled for Arduino UNO R3 to use \&quot;Wire\&quot; instance&quot;</span>;</div>
+<div class="line"><span class="preprocessor">#elif defined( ARDUINO_UNOR4_MINIMA ) || defined( ARDUINO_UNOR4_WIFI ) </span><span class="comment">// for Arduino UNO R4</span></div>
+<div class="line">  TwoWire&amp; w = Wire;</div>
+<div class="line">  <span class="keyword">const</span> String s = <span class="stringliteral">&quot;Code is compiled for Arduino UNO R4 to use \&quot;Wire\&quot; instance&quot;</span>;</div>
 <div class="line"><span class="preprocessor">#elif defined( ARDUINO_SAM_DUE ) </span><span class="comment">// for Arduino Due</span></div>
-<div class="line">TwoWire&amp; w = Wire1;</div>
+<div class="line">  TwoWire&amp; w = Wire1;</div>
+<div class="line">  <span class="keyword">const</span> String s = <span class="stringliteral">&quot;Code is compiled for Arduino DUE to use \&quot;Wire1\&quot; instance&quot;</span>;</div>
 <div class="line"><span class="preprocessor">#else</span></div>
-<div class="line"><span class="preprocessor">#error &quot;not supported board&quot;</span></div>
+<div class="line"><span class="preprocessor">  #error &quot;not supported board&quot;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_class" href="classtest___l_m75_b.html">test_LM75B</a> sensor(w);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  w.begin();</div>
 <div class="line">  Serial.begin(9600);</div>
+<div class="line">  <span class="keywordflow">while</span> (!Serial)</div>
+<div class="line">    ;</div>
+<div class="line"> </div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;\r***** Hello, I2C_device! *****&quot;</span>);</div>
+<div class="line">  Serial.println(s);</div>
+<div class="line"> </div>
+<div class="line">  w.begin();</div>
 <div class="line"> </div>
 <div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>(w, 124);  <span class="comment">//  Scan stop at 124</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  Serial.println(sensor.<a class="code hl_function" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>());</div>
+<div class="line">  Serial.println(sensor.read());</div>
 <div class="line">  delay(1000);</div>
 <div class="line">}</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>

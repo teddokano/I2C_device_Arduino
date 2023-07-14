@@ -16,9 +16,13 @@
 test_LM75B sensor(Wire);
 
 void setup() {
-  Wire.begin();
   Serial.begin(9600);
+  while (!Serial)
+    ;
+
   Serial.println("\r***** Hello, I2C_device! *****");
+
+  Wire.begin();
 
   I2C_device::scan();
 }
