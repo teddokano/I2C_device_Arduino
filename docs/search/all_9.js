@@ -1,5 +1,15 @@
 var searchData=
 [
-  ['write_5fr16_0',['write_r16',['../class_i2_c__device.html#aa7db320551353b8d860221dc646f3989',1,'I2C_device']]],
-  ['write_5fr8_1',['write_r8',['../class_i2_c__device.html#a5f69560e9cb2d8ec33f2f5f8d497a34e',1,'I2C_device']]]
+  ['read_0',['read',['../classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60',1,'test_LM75B']]],
+  ['read_5fr16_1',['read_r16',['../class_i2_c__device.html#a3233b2ec4089712cac202b6c9f21065c',1,'I2C_device']]],
+  ['read_5fr8_2',['read_r8',['../class_i2_c__device.html#a22570c777adad98a8407037cc9748434',1,'I2C_device']]],
+  ['readme_2emd_3',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['references_4',['References',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
+  ['reg_5fnum_5',['reg_num',['../classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0',1,'test_LM75B']]],
+  ['reg_5fr_6',['reg_r',['../class_i2_c__device.html#ae52fa04d96bbf2dc744536fba869fc23',1,'I2C_device::reg_r(const uint8_t reg_adr, uint8_t *data, const uint16_t size)'],['../class_i2_c__device.html#a215d61e07f3997267ba3ce331b3a0478',1,'I2C_device::reg_r(const uint8_t reg_adr)']]],
+  ['reg_5fw_7',['reg_w',['../class_i2_c__device.html#a85877a959c153d24e3d2a3e783463c67',1,'I2C_device::reg_w(const uint8_t reg_adr, const uint8_t data)'],['../class_i2_c__device.html#a3e0da55200452867a3ea47efc7c30c4a',1,'I2C_device::reg_w(const uint8_t reg_adr, const uint8_t *data, const uint16_t size)']]],
+  ['related_20libraries_8',['Related libraries',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['repeated_5fstart_5fenable_9',['repeated_start_enable',['../class_i2_c__device.html#adcaf4e53ec0f07d0ff33f12b70f98c53',1,'I2C_device']]],
+  ['rs_5fdis_10',['rs_dis',['../class_i2_c__device.html#a4b1c4e0952fc5c875ee845de98f2c35b',1,'I2C_device']]],
+  ['rx_11',['rx',['../class_i2_c__device.html#a6ee95a9534bcee0472e5853d1ac0a6ed',1,'I2C_device']]]
 ];

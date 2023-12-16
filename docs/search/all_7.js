@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scan_0',['scan',['../class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a',1,'I2C_device']]]
+  ['os_5fmode_0',['os_mode',['../classtest___l_m75_b.html#a02eb6404beb82d21dec94d2ab3bc03dc',1,'test_LM75B']]]
 ];
