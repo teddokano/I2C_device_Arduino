@@ -2,11 +2,11 @@
 
 /* LM75B class ******************************************/
 
-test_LM75B::test_LM75B( uint8_t i2c_address ) : I2C_device( i2c_address )
+test_LM75B::test_LM75B( const uint8_t i2c_address ) : I2C_device( i2c_address )
 {
 }
 
-test_LM75B::test_LM75B( TwoWire& wire, uint8_t i2c_address ) : I2C_device( wire, i2c_address )
+test_LM75B::test_LM75B( TwoWire& wire, const uint8_t i2c_address ) : I2C_device( wire, i2c_address )
 {
 }
 
@@ -19,7 +19,7 @@ float test_LM75B::read()
 	return read_r16( Temp ) / 256.0;
 }
 
-void test_LM75B::thresholds( float v0, float v1 )
+void test_LM75B::thresholds( const float v0, const float v1 )
 {
 	float higher	= (v0 < v1) ? v1 : v0;
 	float lower		= (v0 < v1) ? v0 : v1;
@@ -28,7 +28,7 @@ void test_LM75B::thresholds( float v0, float v1 )
 	write_r16( Thyst, ((uint16_t)(lower  * 256.0)) & 0xFF80 );
 }
 
-void test_LM75B::os_mode( mode flag )
+void test_LM75B::os_mode( const mode flag )
 {
 	uint8_t	v;
 	

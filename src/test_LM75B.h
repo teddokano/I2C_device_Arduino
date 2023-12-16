@@ -44,14 +44,14 @@ public:
 	 *
 	 * @param i2c_address I2C-bus address (default: (0x90>>1))
 	 */
-	test_LM75B( uint8_t i2c_address = (0x90 >> 1) );
+	test_LM75B( const uint8_t i2c_address = (0x90 >> 1) );
 
 	/** Create a PCT2075 instance connected to specified I2C pins with specified address
 	 *
 	 * @param wire TwoWire instance
 	 * @param i2c_address I2C-bus address (default: (0x90>>1))
 	 */
-	test_LM75B( TwoWire& wire, uint8_t i2c_address = (0x90 >> 1) );
+	test_LM75B( TwoWire& wire, const uint8_t i2c_address = (0x90 >> 1) );
 
 	/** Destructor of PCT2075
 	 */
@@ -71,13 +71,13 @@ public:
 	 * @param v0 a value in degree Celsius
 	 * @param v1 a value in degree Celsius
 	 */	
-	void thresholds( float v0, float v1 );
+	void thresholds( const float v0, const float v1 );
 
 	/** Set OS operation mode 
 	 *
 	 * @param flag use PCT2075::COMPARATOR or PCT2075::INTERRUPT values
 	 */	
-	void os_mode( mode flag );
+	void os_mode( const mode flag );
 };
 
 #endif //	ARDUINO_TEMP_SENSOR_H
