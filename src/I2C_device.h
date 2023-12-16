@@ -23,7 +23,7 @@ public:
 	 * @param i2c_address I2C-bus address
 	 * @param repeated_start_enable repeated-START-condition enable between write and read transaction for register reading. Default: true
 	 */
-	I2C_device( uint8_t i2c_address, bool repeated_start_enable = true );
+	I2C_device( const uint8_t i2c_address, const bool repeated_start_enable = true );
 
 	/** Create a I2C_device instance with specified address
 	 *
@@ -31,7 +31,7 @@ public:
 	 * @param i2c_address I2C-bus address
 	 * @param repeated_start_enable repeated-START-condition enable between write and read transaction for register reading. Default: true
 	 */
-	I2C_device( TwoWire& wire, uint8_t i2c_address, bool repeated_start_enable = true );
+	I2C_device( TwoWire& wire, const uint8_t i2c_address, const bool repeated_start_enable = true );
 
     /** Destructor of I2C_device
      */
@@ -41,7 +41,7 @@ public:
 	 *
 	 * @param en repeated-START-condition enable between write and read transaction for register reading. Default: true
 	 */
-	void repeated_start_enable( bool en = true );
+	void repeated_start_enable( const bool en = true );
 	
 	/** Ping the device
 	 *
@@ -56,7 +56,7 @@ public:
 	 * @param stop option: generating STOP-condition after transaction. Defailt: true
 	 * @return transferred data size or error code in negative number: -1=data too long, -2=NACK for address, -3=NACK for data, -4=Other error, -5=Time out
 	 */
-	int tx( uint8_t *data, uint16_t size, bool stop = true );
+	int tx( const uint8_t *data, const uint16_t size, const bool stop = true );
 
 	/** Receive data
 	 * 
@@ -64,7 +64,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int rx( uint8_t *data, uint16_t size );
+	int rx( uint8_t *data, const uint16_t size );
 	
 	/** Multiple register write
 	 * 
@@ -73,7 +73,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size );
+	int reg_w( const uint8_t reg_adr, const uint8_t *data, const uint16_t size );
 
 	/** Single register write
 	 * 
@@ -82,7 +82,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int reg_w( uint8_t reg_adr, uint8_t data );
+	int reg_w( const uint8_t reg_adr, const uint8_t data );
 
 	/** Multiple register read
 	 * 
@@ -91,21 +91,23 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size );
+	int reg_r( const uint8_t reg_adr, uint8_t *data, const uint16_t size );
 
 	/** Single register read
 	 * 
 	 * @param reg register index/address/pointer
-	 * @return read data
+	 * @param data pointer to data buffer
+	 * @param size data size
+	 * @return read data size
 	 */
-	uint8_t	reg_r( uint8_t reg_adr );
+	uint8_t	reg_r( const uint8_t reg_adr );
 
 	/** Register write, 8 bit
 	 *
 	 * @param reg register index/address/pointer
-	 * @param val data value
+	 * @return data value
 	 */
-	void write_r8( uint8_t reg, uint8_t val );
+	void write_r8( const uint8_t reg, const uint8_t val );
 
 	/** Register write, 16 bit
 	 * 
@@ -114,14 +116,14 @@ public:
 	 * @param reg register index/address/pointer
 	 * @param val data value
 	 */
-	void write_r16( uint8_t reg, uint16_t val );
+	void write_r16( const uint8_t reg, const uint16_t val );
 
 	/** Register read, 8 bit
 	 *
 	 * @param reg register index/address/pointer
 	 * @return data value
 	 */
-	uint8_t read_r8( uint8_t reg );
+	uint8_t read_r8( const uint8_t reg );
 
 	/** Register read, 16 bit
 	 *	
@@ -130,7 +132,7 @@ public:
 	 * @param reg register index/address/pointer
 	 * @return data value
 	 */
-	uint16_t read_r16( uint8_t reg );
+	uint16_t read_r16( const uint8_t reg );
 
 	/** Register overwriting with bit-mask
 	 *	
@@ -140,19 +142,19 @@ public:
 	 * @param mask bit-mask to protect overwriting
 	 * @param value value to overwrite
 	 */
-	void bit_op8(  uint8_t reg,  uint8_t mask,  uint8_t value );
-	void bit_op16( uint8_t reg, uint16_t mask, uint16_t value );
+	void bit_op8(  const uint8_t reg, const  uint8_t mask, const  uint8_t value );
+	void bit_op16( const uint8_t reg, const uint16_t mask, const uint16_t value );
 
 	/** ping (class method)
 	 *
 	 * @param target address
 	 * @return true, if ACKed
 	 */
-	static bool ping( uint8_t addr );
+	static bool ping( const uint8_t addr );
 	
 	/** scan (class method)
 	 */
-	static void scan( TwoWire& target_i2c = Wire, uint8_t stop = 128 );
+	static void scan( TwoWire& target_i2c = Wire, const uint8_t stop = 128 );
 		
 private:
 	TwoWire&	i2c;
