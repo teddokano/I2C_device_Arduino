@@ -60,7 +60,7 @@ void I2C_device::scan( TwoWire& target_i2c, uint8_t stop )
 	Serial.print( "\n" );			
 }
 
-int I2C_device::tx( uint8_t *data, uint16_t size, bool stop )
+int I2C_device::tx( const uint8_t *data, uint16_t size, bool stop )
 {
 	i2c.beginTransmission( i2c_addr );
 	size		= i2c.write( data, size );
@@ -87,7 +87,7 @@ int I2C_device::rx( uint8_t *data, uint16_t size )
 	return r_size;
 }
 
-int I2C_device::reg_w( uint8_t reg_adr, uint8_t *data, uint16_t size )
+int I2C_device::reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size )
 {
 	uint8_t buffer[ size + 1 ];
 	

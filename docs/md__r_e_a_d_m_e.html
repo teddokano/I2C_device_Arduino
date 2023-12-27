@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.3</span>
+   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.4</span>
    </div>
    <div id="projectbrief">An I²C utility class for Arduino</div>
   </td>
@@ -91,7 +91,7 @@ Document</h1>
 Example</h1>
 <p>An example code is available using <a class="el" href="classtest___l_m75_b.html">test_LM75B</a> class which is included in this library distribution. <br  />
  It performs</p><ol type="1">
-<li>Scan of I²C bus. Result is shown as a table (executed by <code><a class="el" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan()</a></code>)</li>
+<li>Scan of I²C bus. Result is shown as a table (executed by <code><a class="el" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan()</a></code>)</li>
 </ol>
 <ol type="1">
 <li>temperature reading from LM75B and its compatible device and showing result in every second.</li>
@@ -113,7 +113,7 @@ Using different I²C bus</h2>
 <div class="line"> </div>
 <div class="line">  Wire.begin();</div>
 <div class="line"> </div>
-<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan</a>();</div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>();</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
@@ -121,7 +121,7 @@ Using different I²C bus</h2>
 <div class="line">  delay(1000);</div>
 <div class="line">}</div>
 <div class="ttc" id="a_i2_c__device_8h_html"><div class="ttname"><a href="_i2_c__device_8h.html">I2C_device.h</a></div></div>
-<div class="ttc" id="aclass_i2_c__device_html_acd61a1970cf488d9fcada5e4b7116088"><div class="ttname"><a href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan</a></div><div class="ttdeci">static void scan(TwoWire &amp;target_i2c=Wire, const uint8_t stop=128)</div><div class="ttdef"><b>Definition</b> <a href="_i2_c__device_8cpp_source.html#l00026">I2C_device.cpp:26</a></div></div>
+<div class="ttc" id="aclass_i2_c__device_html_a8c95b5549c3ea77941e5c27783e9859a"><div class="ttname"><a href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a></div><div class="ttdeci">static void scan(TwoWire &amp;target_i2c=Wire, uint8_t stop=128)</div><div class="ttdef"><b>Definition</b> <a href="_i2_c__device_8cpp_source.html#l00026">I2C_device.cpp:26</a></div></div>
 <div class="ttc" id="aclasstest___l_m75_b_html"><div class="ttname"><a href="classtest___l_m75_b.html">test_LM75B</a></div><div class="ttdef"><b>Definition</b> <a href="test___l_m75_b_8h_source.html#l00027">test_LM75B.h:28</a></div></div>
 <div class="ttc" id="atest___l_m75_b_8h_html"><div class="ttname"><a href="test___l_m75_b_8h.html">test_LM75B.h</a></div></div>
 </div><!-- fragment --><p>If user need to use other instance of TwoWire class (a class for Wire), it could be done like below. <br  />
@@ -142,7 +142,7 @@ Using different I²C bus</h2>
 <div class="line">  <span class="comment">// Wire.begin();  //  Changed to next line</span></div>
 <div class="line">  Wire1.begin();</div>
 <div class="line"> </div>
-<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan</a>(Wire1, 124); <span class="comment">//  Scan stop at 124</span></div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>(Wire1, 124); <span class="comment">//  Scan stop at 124</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
@@ -181,7 +181,7 @@ TIPS</h3>
 <div class="line"> </div>
 <div class="line">  w.begin();</div>
 <div class="line"> </div>
-<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan</a>(w, 124);  <span class="comment">//  Scan stop at 124</span></div>
+<div class="line">  <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>(w, 124);  <span class="comment">//  Scan stop at 124</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>

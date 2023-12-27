@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.3</span>
+   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.4</span>
    </div>
    <div id="projectbrief">An I²C utility class for Arduino</div>
   </td>
@@ -120,7 +120,7 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan</a>( TwoWire&amp; target_i2c, uint8_t stop )</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a>( TwoWire&amp; target_i2c, uint8_t stop )</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span>  result[ 128 ];</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
@@ -159,7 +159,7 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">   63</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">I2C_device::tx</a>( uint8_t *data, uint16_t size, <span class="keywordtype">bool</span> stop )</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">   63</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">I2C_device::tx</a>( <span class="keyword">const</span> uint8_t *data, uint16_t size, <span class="keywordtype">bool</span> stop )</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_variable" href="class_i2_c__device.html#a946e117192be1ed0499e509ca7e9482e">i2c</a>.beginTransmission( <a class="code hl_variable" href="class_i2_c__device.html#ac1690942862f4dac204ff918b1f8ca48">i2c_addr</a> );</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    size        = <a class="code hl_variable" href="class_i2_c__device.html#a946e117192be1ed0499e509ca7e9482e">i2c</a>.write( data, size );</div>
@@ -189,7 +189,8 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
 </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keywordtype">int</span> <a class="code hl_function" href="class_i2_c__device.html#a5b6217e349b8f70ecfb7a75435b8694f">I2C_device::reg_w</a>( uint8_t reg_adr, uint8_t *data, uint16_t size )</div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a5b6217e349b8f70ecfb7a75435b8694f">   90</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_i2_c__device.html#a5b6217e349b8f70ecfb7a75435b8694f">I2C_device::reg_w</a>( uint8_t reg_adr, <span class="keyword">const</span> uint8_t *data, uint16_t size )</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    uint8_t buffer[ size + 1 ];</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
@@ -199,6 +200,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">tx</a>( buffer, <span class="keyword">sizeof</span>( buffer ) );</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a76e502bad7038b7d534140931d0ccc27">  101</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_i2_c__device.html#a5b6217e349b8f70ecfb7a75435b8694f">I2C_device::reg_w</a>( uint8_t reg_adr, uint8_t data )</div>
@@ -269,7 +271,7 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
 <div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#acfd906fd65b2a5c3f062d6ab077a97d7">  155</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c__device.html#acfd906fd65b2a5c3f062d6ab077a97d7">I2C_device::bit_op8</a>( uint8_t reg, uint8_t mask, uint8_t value )</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a758abf4ad6fdca6d32c06ab7780b13b5">  155</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c__device.html#a758abf4ad6fdca6d32c06ab7780b13b5">I2C_device::bit_op8</a>( uint8_t reg, uint8_t mask, uint8_t value )</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>{</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    uint8_t v   = <a class="code hl_function" href="class_i2_c__device.html#a422a498c526852b38836a6313e14e371">read_r8</a>( reg );</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
@@ -281,7 +283,7 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
 <div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a9a8ee553158dfbc710c934866b2a660e">  165</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c__device.html#a9a8ee553158dfbc710c934866b2a660e">I2C_device::bit_op16</a>( uint8_t reg, uint16_t mask, uint16_t value )</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#abd030d701ee101dbf359c05eddab50cf">  165</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_i2_c__device.html#abd030d701ee101dbf359c05eddab50cf">I2C_device::bit_op16</a>( uint8_t reg, uint16_t mask, uint16_t value )</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>{</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    uint16_t v  = <a class="code hl_function" href="class_i2_c__device.html#a9aa5aff32f1484d2282decfa0307c38d">read_r16</a>( reg );</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
@@ -299,17 +301,17 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aclass_i2_c__device_html_a422a498c526852b38836a6313e14e371"><div class="ttname"><a href="class_i2_c__device.html#a422a498c526852b38836a6313e14e371">I2C_device::read_r8</a></div><div class="ttdeci">uint8_t read_r8(uint8_t reg)</div><div class="ttdef"><b>Definition</b> <a href="#l00141">I2C_device.cpp:141</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_a4b1c4e0952fc5c875ee845de98f2c35b"><div class="ttname"><a href="class_i2_c__device.html#a4b1c4e0952fc5c875ee845de98f2c35b">I2C_device::rs_dis</a></div><div class="ttdeci">bool rs_dis</div><div class="ttdef"><b>Definition</b> <a href="_i2_c__device_8h_source.html#l00162">I2C_device.h:162</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_a4b2526a8ce59f91ca9019b3d66a76d71"><div class="ttname"><a href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">I2C_device::tx</a></div><div class="ttdeci">int tx(const uint8_t *data, uint16_t size, bool stop=true)</div><div class="ttdef"><b>Definition</b> <a href="#l00063">I2C_device.cpp:63</a></div></div>
-<div class="ttc" id="aclass_i2_c__device_html_a5b6217e349b8f70ecfb7a75435b8694f"><div class="ttname"><a href="class_i2_c__device.html#a5b6217e349b8f70ecfb7a75435b8694f">I2C_device::reg_w</a></div><div class="ttdeci">int reg_w(uint8_t reg_adr, const uint8_t *data, uint16_t size)</div></div>
+<div class="ttc" id="aclass_i2_c__device_html_a5b6217e349b8f70ecfb7a75435b8694f"><div class="ttname"><a href="class_i2_c__device.html#a5b6217e349b8f70ecfb7a75435b8694f">I2C_device::reg_w</a></div><div class="ttdeci">int reg_w(uint8_t reg_adr, const uint8_t *data, uint16_t size)</div><div class="ttdef"><b>Definition</b> <a href="#l00090">I2C_device.cpp:90</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_a5f69560e9cb2d8ec33f2f5f8d497a34e"><div class="ttname"><a href="class_i2_c__device.html#a5f69560e9cb2d8ec33f2f5f8d497a34e">I2C_device::write_r8</a></div><div class="ttdeci">void write_r8(uint8_t reg, uint8_t val)</div><div class="ttdef"><b>Definition</b> <a href="#l00126">I2C_device.cpp:126</a></div></div>
+<div class="ttc" id="aclass_i2_c__device_html_a758abf4ad6fdca6d32c06ab7780b13b5"><div class="ttname"><a href="class_i2_c__device.html#a758abf4ad6fdca6d32c06ab7780b13b5">I2C_device::bit_op8</a></div><div class="ttdeci">void bit_op8(uint8_t reg, uint8_t mask, uint8_t value)</div><div class="ttdef"><b>Definition</b> <a href="#l00155">I2C_device.cpp:155</a></div></div>
+<div class="ttc" id="aclass_i2_c__device_html_a8c95b5549c3ea77941e5c27783e9859a"><div class="ttname"><a href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">I2C_device::scan</a></div><div class="ttdeci">static void scan(TwoWire &amp;target_i2c=Wire, uint8_t stop=128)</div><div class="ttdef"><b>Definition</b> <a href="#l00026">I2C_device.cpp:26</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_a946e117192be1ed0499e509ca7e9482e"><div class="ttname"><a href="class_i2_c__device.html#a946e117192be1ed0499e509ca7e9482e">I2C_device::i2c</a></div><div class="ttdeci">TwoWire &amp; i2c</div><div class="ttdef"><b>Definition</b> <a href="_i2_c__device_8h_source.html#l00160">I2C_device.h:160</a></div></div>
-<div class="ttc" id="aclass_i2_c__device_html_a9a8ee553158dfbc710c934866b2a660e"><div class="ttname"><a href="class_i2_c__device.html#a9a8ee553158dfbc710c934866b2a660e">I2C_device::bit_op16</a></div><div class="ttdeci">void bit_op16(const uint8_t reg, const uint16_t mask, const uint16_t value)</div><div class="ttdef"><b>Definition</b> <a href="#l00165">I2C_device.cpp:165</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_a9aa5aff32f1484d2282decfa0307c38d"><div class="ttname"><a href="class_i2_c__device.html#a9aa5aff32f1484d2282decfa0307c38d">I2C_device::read_r16</a></div><div class="ttdeci">uint16_t read_r16(uint8_t reg)</div><div class="ttdef"><b>Definition</b> <a href="#l00146">I2C_device.cpp:146</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_aa7db320551353b8d860221dc646f3989"><div class="ttname"><a href="class_i2_c__device.html#aa7db320551353b8d860221dc646f3989">I2C_device::write_r16</a></div><div class="ttdeci">void write_r16(uint8_t reg, uint16_t val)</div><div class="ttdef"><b>Definition</b> <a href="#l00131">I2C_device.cpp:131</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_aa7e393f9d636f9703047a96761828ade"><div class="ttname"><a href="class_i2_c__device.html#aa7e393f9d636f9703047a96761828ade">I2C_device::repeated_start_enable</a></div><div class="ttdeci">void repeated_start_enable(bool en=true)</div><div class="ttdef"><b>Definition</b> <a href="#l00015">I2C_device.cpp:15</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_aacf224bbce4f0c28a11b2b1355f36ca9"><div class="ttname"><a href="class_i2_c__device.html#aacf224bbce4f0c28a11b2b1355f36ca9">I2C_device::reg_r</a></div><div class="ttdeci">int reg_r(uint8_t reg_adr, uint8_t *data, uint16_t size)</div><div class="ttdef"><b>Definition</b> <a href="#l00111">I2C_device.cpp:111</a></div></div>
+<div class="ttc" id="aclass_i2_c__device_html_abd030d701ee101dbf359c05eddab50cf"><div class="ttname"><a href="class_i2_c__device.html#abd030d701ee101dbf359c05eddab50cf">I2C_device::bit_op16</a></div><div class="ttdeci">void bit_op16(uint8_t reg, uint16_t mask, uint16_t value)</div><div class="ttdef"><b>Definition</b> <a href="#l00165">I2C_device.cpp:165</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_ac1690942862f4dac204ff918b1f8ca48"><div class="ttname"><a href="class_i2_c__device.html#ac1690942862f4dac204ff918b1f8ca48">I2C_device::i2c_addr</a></div><div class="ttdeci">uint8_t i2c_addr</div><div class="ttdef"><b>Definition</b> <a href="_i2_c__device_8h_source.html#l00161">I2C_device.h:161</a></div></div>
-<div class="ttc" id="aclass_i2_c__device_html_acd61a1970cf488d9fcada5e4b7116088"><div class="ttname"><a href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">I2C_device::scan</a></div><div class="ttdeci">static void scan(TwoWire &amp;target_i2c=Wire, const uint8_t stop=128)</div><div class="ttdef"><b>Definition</b> <a href="#l00026">I2C_device.cpp:26</a></div></div>
-<div class="ttc" id="aclass_i2_c__device_html_acfd906fd65b2a5c3f062d6ab077a97d7"><div class="ttname"><a href="class_i2_c__device.html#acfd906fd65b2a5c3f062d6ab077a97d7">I2C_device::bit_op8</a></div><div class="ttdeci">void bit_op8(const uint8_t reg, const uint8_t mask, const uint8_t value)</div><div class="ttdef"><b>Definition</b> <a href="#l00155">I2C_device.cpp:155</a></div></div>
 <div class="ttc" id="aclass_i2_c__device_html_ad80b4138d2345ca258c9f33930853bc7"><div class="ttname"><a href="class_i2_c__device.html#ad80b4138d2345ca258c9f33930853bc7">I2C_device::I2C_device</a></div><div class="ttdeci">I2C_device(uint8_t i2c_address, bool repeated_start_enable=true)</div><div class="ttdef"><b>Definition</b> <a href="#l00003">I2C_device.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

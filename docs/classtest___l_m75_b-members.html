@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.3</span>
+   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.4</span>
    </div>
    <div id="projectbrief">An I²C utility class for Arduino</div>
   </td>
@@ -78,8 +78,8 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classtest___l_m75_b.html">test_LM75B</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#a9a8ee553158dfbc710c934866b2a660e">bit_op16</a>(const uint8_t reg, const uint16_t mask, const uint16_t value)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_i2_c__device.html#acfd906fd65b2a5c3f062d6ab077a97d7">bit_op8</a>(const uint8_t reg, const uint8_t mask, const uint8_t value)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#abd030d701ee101dbf359c05eddab50cf">bit_op16</a>(uint8_t reg, uint16_t mask, uint16_t value)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_i2_c__device.html#a758abf4ad6fdca6d32c06ab7780b13b5">bit_op8</a>(uint8_t reg, uint8_t mask, uint8_t value)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classtest___l_m75_b.html#aee2753cd76e582c42cad5c415898bb99aa7b1b3ad885f4f9437dada550050a5a6">COMPARATOR</a> enum value</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0ac490eb0b637f2bf9c775ff8d3687f539">Conf</a> enum value</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#a946e117192be1ed0499e509ca7e9482e">i2c</a></td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
@@ -90,7 +90,7 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="classtest___l_m75_b.html#aee2753cd76e582c42cad5c415898bb99">mode</a> enum name</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classtest___l_m75_b.html#a02eb6404beb82d21dec94d2ab3bc03dc">os_mode</a>(const mode flag)</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_i2_c__device.html#a2298c86cb79fdbb630a909c1ca970b05">ping</a>(void)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#ae79c6263856f370b231280626991ef22">ping</a>(const uint8_t addr)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#a9827d0dd088d394df1d78e0e41573baf">ping</a>(uint8_t addr)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classtest___l_m75_b.html#ac2873766359521441c474fa01a802c60">read</a>(void)</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#a9aa5aff32f1484d2282decfa0307c38d">read_r16</a>(uint8_t reg)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_i2_c__device.html#a422a498c526852b38836a6313e14e371">read_r8</a>(uint8_t reg)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
@@ -102,7 +102,7 @@ $(function() {
   <tr class="odd"><td class="entry"><a class="el" href="class_i2_c__device.html#aa7e393f9d636f9703047a96761828ade">repeated_start_enable</a>(bool en=true)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#a4b1c4e0952fc5c875ee845de98f2c35b">rs_dis</a></td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_i2_c__device.html#a371e31074e312ef7718ce71708f265c3">rx</a>(uint8_t *data, uint16_t size)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#acd61a1970cf488d9fcada5e4b7116088">scan</a>(TwoWire &amp;target_i2c=Wire, const uint8_t stop=128)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i2_c__device.html#a8c95b5549c3ea77941e5c27783e9859a">scan</a>(TwoWire &amp;target_i2c=Wire, uint8_t stop=128)</td><td class="entry"><a class="el" href="class_i2_c__device.html">I2C_device</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0abd7d22ade8c2a74db5c06efee6c18760">Temp</a> enum value</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classtest___l_m75_b.html#ac059258ab38a3706c1c9081ab2de3da7">test_LM75B</a>(const uint8_t i2c_address=(0x90 &gt; &gt; 1))</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classtest___l_m75_b.html#acb8f4a31b0ddc5a6199bec92a6bd1dea">test_LM75B</a>(TwoWire &amp;wire, const uint8_t i2c_address=(0x90 &gt; &gt; 1))</td><td class="entry"><a class="el" href="classtest___l_m75_b.html">test_LM75B</a></td><td class="entry"></td></tr>

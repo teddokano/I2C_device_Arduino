@@ -142,19 +142,19 @@ public:
 	 * @param mask bit-mask to protect overwriting
 	 * @param value value to overwrite
 	 */
-	void bit_op8(  const uint8_t reg, const  uint8_t mask, const  uint8_t value );
-	void bit_op16( const uint8_t reg, const uint16_t mask, const uint16_t value );
+	void bit_op8(  uint8_t reg,  uint8_t mask,  uint8_t value );
+	void bit_op16( uint8_t reg, uint16_t mask, uint16_t value );
 
 	/** ping (class method)
 	 *
 	 * @param target address
 	 * @return true, if ACKed
 	 */
-	static bool ping( const uint8_t addr );
+	static bool ping( uint8_t addr );
 	
 	/** scan (class method)
 	 */
-	static void scan( TwoWire& target_i2c = Wire, const uint8_t stop = 128 );
+	static void scan( TwoWire& target_i2c = Wire, uint8_t stop = 128 );
 		
 private:
 	TwoWire&	i2c;
