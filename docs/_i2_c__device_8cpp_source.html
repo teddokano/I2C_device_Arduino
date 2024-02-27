@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.4</span>
+   <div id="projectname">I2C_device_Arduino<span id="projectnumber">&#160;1.0.5</span>
    </div>
    <div id="projectbrief">An I²C utility class for Arduino</div>
   </td>
@@ -225,12 +225,12 @@ $(function() { codefold.init(0); });
 <div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_i2_c__device.html#a8380ce4dd6211b4cc7d5e48bdb473854">  117</a></span>uint8_t <a class="code hl_function" href="class_i2_c__device.html#aacf224bbce4f0c28a11b2b1355f36ca9">I2C_device::reg_r</a>( uint8_t reg_adr )</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>{</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    uint8_t buffer;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    uint8_t buffer  = 0;    <span class="comment">//  assignning zero to suppress warning &quot;-Wmaybe-uninitialized&quot;</span></div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    </div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_function" href="class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71">tx</a>( &amp;reg_adr, 1, <a class="code hl_variable" href="class_i2_c__device.html#a4b1c4e0952fc5c875ee845de98f2c35b">rs_dis</a> );</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_function" href="class_i2_c__device.html#a371e31074e312ef7718ce71708f265c3">rx</a>( &amp;buffer, 1 );</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">return</span> buffer;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>} </div>
 </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
