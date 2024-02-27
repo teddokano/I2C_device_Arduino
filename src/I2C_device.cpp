@@ -116,12 +116,12 @@ int I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size )
 
 uint8_t I2C_device::reg_r( uint8_t reg_adr )
 {
-	uint8_t	buffer;
+	uint8_t	buffer	= 0;	//	assignning zero to suppress warning "-Wmaybe-uninitialized"
 	
 	tx( &reg_adr, 1, rs_dis );
 	rx( &buffer, 1 );
 	return buffer;
-}
+} 
 
 void I2C_device::write_r8( uint8_t reg, uint8_t val )
 {
