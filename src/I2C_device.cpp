@@ -1,10 +1,10 @@
 #include "I2C_device.h"
 
-I2C_device::I2C_device( uint8_t i2c_address, bool repeated_start_enable ) : i2c( Wire ), i2c_addr( i2c_address ), rs_dis( !repeated_start_enable )
+I2C_device::I2C_device( uint8_t i2c_address, bool repeated_start_enable ) : i2c_addr( i2c_address ), i2c( Wire ), rs_dis( !repeated_start_enable )
 {
 }
 
-I2C_device::I2C_device( TwoWire& wire, uint8_t i2c_address, bool repeated_start_enable ) : i2c( wire ), i2c_addr( i2c_address ), rs_dis( !repeated_start_enable )
+I2C_device::I2C_device( TwoWire& wire, uint8_t i2c_address, bool repeated_start_enable ) : i2c_addr( i2c_address ), i2c( wire ), rs_dis( !repeated_start_enable )
 {
 }
 
@@ -170,5 +170,20 @@ void I2C_device::bit_op16( uint8_t reg, uint16_t mask, uint16_t value )
 	v	|= value;
 
 	write_r16( reg, v );
+}
+
+#include	<SPI.h>
+
+void I2C_device::txrx( const uint8_t *w_data, uint8_t *r_data, uint16_t size )
+{
+	memcpy( r_data, w_data, size );
+	
+	SPI.beginTransaction( spi_setting );
+	
+	digitalWrite( SS, LOW );
+	SPI.transfer( r_data, size );
+	digitalWrite( SS, HIGH );
+	
+	SPI.endTransaction();
 }
 

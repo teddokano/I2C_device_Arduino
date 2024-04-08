@@ -11,9 +11,10 @@
 #ifndef ARDUINO_I2C_DEVICE_H
 #define ARDUINO_I2C_DEVICE_H
 
-#include <Arduino.h>
-#include <stdint.h>
-#include <Wire.h>
+#include	<Arduino.h>
+#include	<stdint.h>
+#include	<Wire.h>
+#include	<SPI.h>
 
 class I2C_device
 {
@@ -157,7 +158,9 @@ public:
 	static void scan( TwoWire& target_i2c = Wire, uint8_t stop = 128 );
 		
 protected:
+	void		txrx( const uint8_t *w_data, uint8_t *r_data, uint16_t size );
 	uint8_t		i2c_addr;
+	SPISettings	spi_setting;
 
 private:
 	TwoWire&	i2c;
