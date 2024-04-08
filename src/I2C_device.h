@@ -73,7 +73,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size );
+	virtual int reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size );
 
 	/** Single register write
 	 * 
@@ -82,7 +82,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int reg_w( uint8_t reg_adr, uint8_t data );
+	virtual int reg_w( uint8_t reg_adr, uint8_t data );
 
 	/** Multiple register read
 	 * 
@@ -91,7 +91,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size );
+	virtual int reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size );
 
 	/** Single register read
 	 * 
@@ -100,7 +100,7 @@ public:
 	 * @param size data size
 	 * @return read data size
 	 */
-	uint8_t	reg_r( uint8_t reg_adr );
+	virtual uint8_t	reg_r( uint8_t reg_adr );
 
 	/** Register write, 8 bit
 	 *
@@ -156,9 +156,11 @@ public:
 	 */
 	static void scan( TwoWire& target_i2c = Wire, uint8_t stop = 128 );
 		
+protected:
+	uint8_t		i2c_addr;
+
 private:
 	TwoWire&	i2c;
-	uint8_t		i2c_addr;
 	bool		rs_dis;
 };
 
