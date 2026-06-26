@@ -65,7 +65,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	int rx( uint8_t *data, uint16_t size );
+	int rx( uint8_t *data, uint16_t size, bool stop = true );
 	
 	/** Multiple register write
 	 * 
@@ -74,7 +74,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	virtual int reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size );
+	virtual int reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size, bool stop = true );
 
 	/** Single register write
 	 * 
@@ -83,7 +83,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	virtual int reg_w( uint8_t reg_adr, uint8_t data );
+	virtual int reg_w( uint8_t reg_adr, uint8_t data, bool stop = true );
 
 	/** Multiple register read
 	 * 
@@ -92,7 +92,7 @@ public:
 	 * @param size data size
 	 * @return transferred data size
 	 */
-	virtual int reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size );
+	virtual int reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size, bool stop = true );
 
 	/** Single register read
 	 * 
@@ -101,14 +101,14 @@ public:
 	 * @param size data size
 	 * @return read data size
 	 */
-	virtual uint8_t	reg_r( uint8_t reg_adr );
+	virtual uint8_t	reg_r( uint8_t reg_adr, bool stop = true );
 
 	/** Register write, 8 bit
 	 *
 	 * @param reg register index/address/pointer
 	 * @return data value
 	 */
-	void write_r8( uint8_t reg, uint8_t val );
+	void write_r8( uint8_t reg, uint8_t val, bool stop = true );
 
 	/** Register write, 16 bit
 	 * 
@@ -117,14 +117,14 @@ public:
 	 * @param reg register index/address/pointer
 	 * @param val data value
 	 */
-	void write_r16( uint8_t reg, uint16_t val );
+	void write_r16( uint8_t reg, uint16_t val, bool stop = true );
 
 	/** Register read, 8 bit
 	 *
 	 * @param reg register index/address/pointer
 	 * @return data value
 	 */
-	uint8_t read_r8( uint8_t reg );
+	uint8_t read_r8( uint8_t reg, bool stop = true );
 
 	/** Register read, 16 bit
 	 *	
@@ -133,7 +133,7 @@ public:
 	 * @param reg register index/address/pointer
 	 * @return data value
 	 */
-	uint16_t read_r16( uint8_t reg );
+	uint16_t read_r16( uint8_t reg, bool stop = true );
 
 	/** Register overwriting with bit-mask
 	 *	

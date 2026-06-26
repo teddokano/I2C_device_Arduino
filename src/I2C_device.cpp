@@ -72,9 +72,9 @@ int I2C_device::tx( const uint8_t *data, uint16_t size, bool stop )
 	return size;
 }
 
-int I2C_device::rx( uint8_t *data, uint16_t size )
+int I2C_device::rx( uint8_t *data, uint16_t size, bool stop )
 {
-	uint16_t r_size = i2c.requestFrom( i2c_addr, size );
+	uint16_t r_size = i2c.requestFrom( static_cast<int>( i2c_addr ), static_cast<int>( size ), static_cast<int>( stop ) );
 
 	if ( size && !r_size )
 		return	-1;
@@ -87,7 +87,7 @@ int I2C_device::rx( uint8_t *data, uint16_t size )
 	return r_size;
 }
 
-int I2C_device::reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size )
+int I2C_device::reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size, bool stop )
 {
 	uint8_t buffer[ size + 1 ];
 	
@@ -95,66 +95,66 @@ int I2C_device::reg_w( uint8_t reg_adr, const uint8_t *data, uint16_t size )
 	for ( uint16_t i = 0; i < size; i++)
 		buffer[ i + 1 ]	= data[ i ];
 	
-	return tx( buffer, sizeof( buffer ) );
+	return tx( buffer, sizeof( buffer ), stop );
 }
 
-int I2C_device::reg_w( uint8_t reg_adr, uint8_t data )
+int I2C_device::reg_w( uint8_t reg_adr, uint8_t data, bool stop )
 {
 	uint8_t buffer[ 2 ];
 	
 	buffer[ 0 ]	= reg_adr;
 	buffer[ 1 ]	= data;
 	
-	return tx( buffer, sizeof( buffer ) );
+	return tx( buffer, sizeof( buffer ), stop );
 }
 
-int I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size )
+int I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size, bool stop )
 {
 	tx( &reg_adr, 1, rs_dis );
-	return rx( data, size );
+	return rx( data, size, stop );
 }
 
-uint8_t I2C_device::reg_r( uint8_t reg_adr )
+uint8_t I2C_device::reg_r( uint8_t reg_adr, bool stop )
 {
 	uint8_t	buffer	= 0;	//	assignning zero to suppress warning "-Wmaybe-uninitialized"
 	
 	tx( &reg_adr, 1, rs_dis );
-	rx( &buffer, 1 );
+	rx( &buffer, 1, stop );
 	return buffer;
 } 
 
-void I2C_device::write_r8( uint8_t reg, uint8_t val )
+void I2C_device::write_r8( uint8_t reg, uint8_t val, bool stop )
 {
-	reg_w( reg, val );
+	reg_w( reg, val, stop );
 }
 
-void I2C_device::write_r16( uint8_t reg, uint16_t val )
+void I2C_device::write_r16( uint8_t reg, uint16_t val, bool stop )
 {
 	uint8_t	buff[ 2 ];
 	
 	buff[ 0 ]	= val >> 8;
 	buff[ 1 ]	= val & 0xFF;
 	
-	reg_w( reg, buff, sizeof( buff ) );
+	reg_w( reg, buff, sizeof( buff ), stop );
 }
 
-uint8_t I2C_device::read_r8( uint8_t reg )
+uint8_t I2C_device::read_r8( uint8_t reg, bool stop )
 {
-	return reg_r( reg );	
+	return reg_r( reg, stop );	
 }
 
-uint16_t I2C_device::read_r16( uint8_t reg )
+uint16_t I2C_device::read_r16( uint8_t reg, bool stop )
 {
 	uint8_t	buff[ 2 ];
 
-	reg_r( reg, buff, sizeof( buff ) );
+	reg_r( reg, buff, sizeof( buff ), stop );
 	
 	return (buff[ 0 ] << 8) | buff[ 1 ];
 }
 
 void I2C_device::bit_op8( uint8_t reg, uint8_t mask, uint8_t value )
 {
-	uint8_t	v	= read_r8( reg );
+	uint8_t	v	= read_r8( reg, false );
 
 	v	&= mask;
 	v	|= value;
@@ -164,7 +164,7 @@ void I2C_device::bit_op8( uint8_t reg, uint8_t mask, uint8_t value )
 
 void I2C_device::bit_op16( uint8_t reg, uint16_t mask, uint16_t value )
 {
-	uint16_t v	= read_r16( reg );
+	uint16_t v	= read_r16( reg, false );
 
 	v	&= mask;
 	v	|= value;
