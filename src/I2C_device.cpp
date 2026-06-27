@@ -64,7 +64,7 @@ int I2C_device::tx( const uint8_t *data, uint16_t size, bool stop )
 {
 	i2c.beginTransmission( i2c_addr );
 	size		= i2c.write( data, size );
-	uint8_t rtn = i2c.endTransmission( stop );
+	uint8_t rtn = i2c.endTransmission( stop || rs_dis );
 
 	if (rtn)
 		return -rtn;
@@ -74,7 +74,7 @@ int I2C_device::tx( const uint8_t *data, uint16_t size, bool stop )
 
 int I2C_device::rx( uint8_t *data, uint16_t size, bool stop )
 {
-	uint16_t r_size = i2c.requestFrom( static_cast<int>( i2c_addr ), static_cast<int>( size ), static_cast<int>( stop ) );
+	uint16_t r_size = i2c.requestFrom( static_cast<int>( i2c_addr ), static_cast<int>( size ), static_cast<int>( stop || rs_dis ) );
 
 	if ( size && !r_size )
 		return	-1;
@@ -110,7 +110,7 @@ int I2C_device::reg_w( uint8_t reg_adr, uint8_t data, bool stop )
 
 int I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size, bool stop )
 {
-	tx( &reg_adr, 1, rs_dis );
+	tx( &reg_adr, 1, false );
 	return rx( data, size, stop );
 }
 
@@ -118,7 +118,7 @@ uint8_t I2C_device::reg_r( uint8_t reg_adr, bool stop )
 {
 	uint8_t	buffer	= 0;	//	assignning zero to suppress warning "-Wmaybe-uninitialized"
 	
-	tx( &reg_adr, 1, rs_dis );
+	tx( &reg_adr, 1, false );
 	rx( &buffer, 1, stop );
 	return buffer;
 } 
