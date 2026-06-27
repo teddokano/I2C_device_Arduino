@@ -1,26 +1,26 @@
 # I2C_device_Arduino
-An I²C utility class for [Arduino](https://www.arduino.cc) 
+An I²C utility class for [Arduino](https://www.arduino.cc)
 
 # What is this?
 An Arduino library for I²C device operations.  
-This is an abstraction class which can be used for all I²C devices to manage its access in register access level.  
+This is an abstraction class which can be used for all I²C devices to manage access at the register level.
 
-On addition to the device abstraction, it provides method `ping()` and `scan()` as class methods.  
+In addition to the device abstraction, it provides `ping()` and `scan()` as class methods.
 
-See `test_LM75B.cpp` and `test_LM75B.h` as a sample for how the sub-class can be derived to make actual device supporting class. 
+See `test_LM75B.cpp` and `test_LM75B.h` as a sample for how a sub-class can be derived to make an actual device-supporting class.
 
 # Document
-Details of the library is provided in [this document](https://teddokano.github.io/I2C_device_Arduino/md__r_e_a_d_m_e.html).
+Details of the library are provided in [this document](https://teddokano.github.io/I2C_device_Arduino/md__r_e_a_d_m_e.html).
 
 # Example
 An example code is available using test_LM75B class which is included in this library distribution.  
-It performs 
+It performs:
 1. Scan of I²C bus. Result is shown as a table (executed by `I2C_device::scan()`)
-1. temperature reading from LM75B and its compatible device and showing result in every second. 
+1. temperature reading from LM75B and its compatible device and showing result every second.
 
 ## Using different I²C bus
 
-For normal usage of I²C device which is delived from I2C_device class, it will be like sample blelow. This intended to use `Wire` instance of Arduino SDK to access I2C, implicitly.  
+For normal usage of an I²C device which is derived from I2C_device class, it will be like the sample below. This is intended to use the `Wire` instance of Arduino SDK to access I2C, implicitly.  
 (Using test_LM75B class included in this library package.)
 ```cpp
 #include <I2C_device.h>
@@ -46,8 +46,8 @@ void loop() {
 }
 ```
 
-If user need to use other instance of TwoWire class (a class for Wire), it could be done like below.  
-In this sample, the I²C device is connected Wire1 (It's SDA1&SCL1 pins on Arduino DUE). Wire1 should be used explisitly.  
+If a user needs to use other instances of TwoWire class (a class for Wire), it could be done like below.  
+In this sample, the I²C device is connected to Wire1 (It's SDA1&SCL1 pins on Arduino DUE). Wire1 should be used explicitly.  
 ```cpp
 #include <I2C_device.h>
 #include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
@@ -60,7 +60,7 @@ void setup() {
   while (!Serial)
     ;
 
-   Serial.println("\r***** Hello, I2C_device! *****");
+  Serial.println("\r***** Hello, I2C_device! *****");
 
   // Wire.begin();  //  Changed to next line
   Wire1.begin();
@@ -76,8 +76,8 @@ void loop() {
 
 ### TIPS
 
-For more generic way to define the hardware, you can do it by compile option to detect the board and switch compile option.  
-In this sample, the compiler detects type of target board and use right instance for the target.  
+For a more generic way to define the hardware, you can do it by compile option to detect the board and switch compile option.  
+In this sample, the compiler detects the type of target board and uses the right instance for the target.  
 ```cpp
 #include <I2C_device.h>
 #include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
