@@ -9,5 +9,6 @@ var searchData=
   ['thyst_6',['Thyst',['../classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0a8890dcb075905a113b151da20c085939',1,'test_LM75B']]],
   ['tips_7',['TIPS',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
   ['tos_8',['Tos',['../classtest___l_m75_b.html#abeb89b1b7e6b4e18506e651ace6de5a0a191457f7a4d68220c69525bb76879515',1,'test_LM75B']]],
-  ['tx_9',['tx',['../class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71',1,'I2C_device']]]
+  ['tx_9',['tx',['../class_i2_c__device.html#a4b2526a8ce59f91ca9019b3d66a76d71',1,'I2C_device']]],
+  ['txrx_10',['txrx',['../class_i2_c__device.html#aa759e88bf8293b092735a2f262e563ea',1,'I2C_device']]]
 ];

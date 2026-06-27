@@ -1,3 +1,15 @@
+/** I2C_device class operation sample with board-dependent Wire instance selection
+ *
+ *  This sample code is showing how to select the right TwoWire instance
+ *  for the target board at compile time using preprocessor macros.
+ *  I2C_device is an abstraction class for I2C devices. So it cannot be used as itself.
+ *  In this sample code, the I2C_device is used as base class of test_LM75B.
+ *
+ *  @author  Tedd OKANO
+ *
+ *  Released under the MIT License
+ */
+
 #include <I2C_device.h>
 #include <test_LM75B.h>  //  <-- test_LM75B is just for testing purpose
 

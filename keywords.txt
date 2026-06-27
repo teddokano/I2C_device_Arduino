@@ -3,6 +3,7 @@
 ##########
 
 I2C_device	KEYWORD1
+test_LM75B	KEYWORD1
 
 ##########
 # methods and functions
@@ -18,3 +19,20 @@ read_r8	KEYWORD2
 read_r16	KEYWORD2
 ping	KEYWORD2
 scan	KEYWORD2
+repeated_start_enable	KEYWORD2
+bit_op8	KEYWORD2
+bit_op16	KEYWORD2
+read	KEYWORD2
+thresholds	KEYWORD2
+os_mode	KEYWORD2
+
+##########
+# constants
+##########
+
+COMPARATOR	LITERAL1
+INTERRUPT	LITERAL1
+Temp	LITERAL1
+Conf	LITERAL1
+Thyst	LITERAL1
+Tos	LITERAL1
