@@ -4,10 +4,10 @@ var indexSectionsWithContent =
   1: "it",
   2: "irt",
   3: "bioprstw~",
-  4: "ir",
+  4: "irs",
   5: "mr",
   6: "cit",
-  7: "i"
+  7: "bdeilrtuw"
 };
 
 var indexSectionNames =

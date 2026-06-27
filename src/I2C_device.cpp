@@ -116,7 +116,7 @@ int I2C_device::reg_r( uint8_t reg_adr, uint8_t *data, uint16_t size, bool stop 
 
 uint8_t I2C_device::reg_r( uint8_t reg_adr, bool stop )
 {
-	uint8_t	buffer	= 0;	//	assignning zero to suppress warning "-Wmaybe-uninitialized"
+	uint8_t	buffer	= 0;	//	assigning zero to suppress warning "-Wmaybe-uninitialized"
 	
 	tx( &reg_adr, 1, false );
 	rx( &buffer, 1, stop );
@@ -171,8 +171,6 @@ void I2C_device::bit_op16( uint8_t reg, uint16_t mask, uint16_t value )
 
 	write_r16( reg, v );
 }
-
-#include	<SPI.h>
 
 void I2C_device::txrx( const uint8_t *w_data, uint8_t *r_data, uint16_t size )
 {
